@@ -1,0 +1,329 @@
+body{
+    background-color: #f3f3f3;
+}
+.custom-btn span.custom-btn-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem; /* Increase the font size to 1.3rem */
+  font-weight: bold; /* Make the text bold */
+  color: black; /* Set the text color to black */
+}
+
+.image-column img {
+  filter: grayscale(100%);
+}
+    /* Add custom CSS for interactive elements */
+    .interactive {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+  
+    .interactive:hover {
+      transform: scale(1.05);
+    }
+    .header-content {
+      padding: 20px;
+    }
+
+    .main-content{
+      padding-bottom: 50px;
+    }
+
+    .image-column {
+      text-align: center;
+    }
+  
+    /* Change colors */
+    body {
+      background-color: #f3f3f3;
+    }
+  
+    .border-top,
+    .border-bottom {
+      border-color: #555;
+    }
+  
+    .font-italic {
+      color: #555;
+    }
+  
+    .font-weight-bold {
+      color: #000000;
+    }
+
+    .col-7 {
+      margin-left: 30px; /* Adjust the value as per your preference */
+    }
+
+    .col-md-5 {
+      margin-right: 30px; /* Adjust the value as per your preference */
+    }
+    .headSubject{
+      margin-left: 80px;
+    }
+/* Add hover animation for the circular buttons */
+.custom-btn {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 1px solid black;
+  color: #000;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+
+.custom-btn:hover {
+
+  transform: scale(1.1); /* Increase the size of the button on hover */
+
+}
+
+.custom-btn:hover::before {
+  opacity: 0; /* Set the pseudo-element to be transparent on hover */
+}
+
+
+.custom-btn.light-blue:hover {
+  background-color: transparent; /* Set the background color to transparent on hover */
+}
+
+.custom-btn.red:hover {
+  background-color: transparent; /* Set the background color to red */
+}
+
+.custom-btn.orange:hover {
+  background-color: transparent; /* Set the background color to light blue */
+}
+
+
+/* Button Background Colors */
+.custom-btn.orange {
+  background-color: #FFA500; /* Set the background color to orange */
+}
+
+.custom-btn.red {
+  background-color: #FF0000; /* Set the background color to red */
+}
+
+.custom-btn.light-blue {
+  background-color: #ADD8E6; /* Set the background color to light blue */
+}
+
+
+
+
+
+.navbar-brand {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Align items vertically in the center */
+    margin-left: 30px;
+  }
+  .home-info {
+    display: flex;
+    align-items: center;
+  }
+  .developer-text {
+    margin-top: 5px;
+   
+  }
+ .home-button{
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+ }
+ /* Media query for responsiveness */
+@media (max-width: 768px) {
+    .home-info {
+      flex-direction: column;
+      align-items: center; 
+      margin-top: 10px;
+    }
+  
+    .home-button {
+      font-size: 18px;
+    }
+  
+    .brand-circle {
+      width: 30px;
+      height: 15px;
+    }
+  }
+/* Custom CSS styles to create the small orange circle */
+.brand-circle {
+    display: inline-flex; /* Display the brand-circle as inline-flex to align it with the text */
+    align-items: center; /* Align items vertically in the center inside the brand-circle */
+    width: 50px;
+    height: 25px;
+    background-color: #EEA302;
+    border-radius: 50%;
+    margin-left: 50%;
+   
+  }
+  .brand-circle span {
+    font-size: 80%; /* Adjust the font size of the word "Developer" as needed */
+    margin-left: 5px;
+   
+  }
+  
+  /* Optional styles for the navbar items */
+  .navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    display: inline-block;
+    margin-right: 15px; /* Adjust spacing between items */
+  }
+  
+  /* Reset styles for anchor tags */
+  .nav-link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Add hover effect for links (optional) */
+  .nav-link:hover {
+    color: transparent;
+  }
+
+  .navbar-nav li {
+    display: flex; /* Use flexbox to align items vertically */
+    align-items: center; /* Align items vertically in the center */
+    border-right: 1px solid #000; /* Change the color (#000) to your desired line color */
+    padding-right: 10px; /* Adjust the spacing between the links and the line as needed */
+    height: 25px;
+  }
+
+  /* To remove the right border from the last link */
+  .navbar-nav li:last-child {
+    border-right: none;
+  }
+
+.main-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Set minimum height to cover the viewport */
+    margin: 0;
+  }
+  
+  .header-content {
+    flex: 0 0 auto; /* The header will not grow or shrink */
+    background-color: #f3f3f3;
+    padding: 20px;
+  }
+  
+  .main-content {
+    flex: 1 0 auto; /* The main content will grow and take all available space */
+   margin-top: 60px;
+    min-height: 0; /* Reset min-height to allow content to expand */
+  }
+/* Add the following CSS to your existing styles */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Set minimum height to cover the viewport */
+  margin: 0;
+}
+
+.header-content {
+  flex: 0 0 auto; /* The header will not grow or shrink */
+  background-color: #f3f3f3;
+  padding: 20px;
+}
+
+.main-content {
+  flex: 1 0 auto; /* The main content will grow and take all available space */
+  padding-bottom: 50px;
+}
+
+.footer-section {
+  flex: 0 0 auto; /* The footer will not grow or shrink */
+  padding: 40px 0;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ccc;
+}
+
+/* Add your custom CSS styles here */
+
+
+
+
+.footer-section p {
+  margin-bottom: 12px;
+}
+
+.footer-section {
+  padding: 15px 0;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ccc;
+}
+
+.footer-section p {
+  margin-bottom: 12px;
+}
+
+.footer-section a {
+  color: #555;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #000000;
+}
+
+.iconify {
+  margin-right: 8px;
+}
+
+#socialIcons li {
+  margin-right: 15px;
+  list-style: none;
+}
+
+#socialIcons a {
+  display: inline-block;
+  color: #555;
+  font-size: 24px;
+  transition: color 0.3s ease-in-out;
+}
+
+#socialIcons a:hover {
+  color: #007bff;
+}
+
+#socialIcons a img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+#socialIcons a:hover img {
+  transform: scale(1.2);
+}
+  
