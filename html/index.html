@@ -28,7 +28,7 @@
     <script>
       // Function to include the content of included.html
       function includeHTML() {
-        fetch("html/header.html")
+        fetch("header.html")
           .then((response) => response.text())
           .then((html) => {
             // Inject the content into the div with id "headerPlaceholder"
@@ -37,7 +37,7 @@
           .catch((error) =>
             console.error("Error fetching included.html:", error)
           );
-          fetch("html/content.html")
+          fetch("content.html")
           .then((response) => response.text())
           .then((html) => {
             // Inject the content into the div with id "headerPlaceholder"
@@ -47,7 +47,7 @@
             console.error("Error fetching included.html:", error)
           );
 
-        fetch("html/footer.html")
+        fetch("footer.html")
           .then((response) => response.text())
           .then((html) => {
             // Inject the content into the div with id "headerPlaceholder"
@@ -56,7 +56,7 @@
           .catch((error) =>
             console.error("Error fetching included.html:", error)
           );
-          fetch("html/projects.html")
+          fetch("projects.html")
           .then((response) => response.text())
           .then((html) => {
             // Inject the content into the div with id "headerPlaceholder"
