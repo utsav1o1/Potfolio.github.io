@@ -26,7 +26,34 @@ body{
     }
     .header-content {
       padding: 20px;
+      border-radius: 50px;
+      margin-left: 16%; /* Adjust the gap between the content and the buttons */
+      margin-right: 16%; /* Adjust the gap between the content and the buttons */
+      border-top: 2px solid #ccc;
+      z-index: 4;
+    
+
     }
+
+    .gradient-background {
+        background: linear-gradient(45deg, #f4fdff, #f3dad8, #949e9e, #6b7d7d);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s infinite;
+        color: white;
+        padding: 20px; /* Adjust padding as needed */
+    }
+    
+    @keyframes gradientAnimation {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
 
     .main-content{
       padding-bottom: 50px;
@@ -38,7 +65,7 @@ body{
   
     /* Change colors */
     body {
-      background-color: #f3f3f3;
+      background-color: #eed8d8;
     }
   
     .border-top,
@@ -144,6 +171,7 @@ body{
     align-items: center;
   }
   .developer-text {
+    color: #6b7d7d;
     margin-top: 5px;
    
   }
@@ -263,9 +291,13 @@ body {
 
 .footer-section {
   flex: 0 0 auto; /* The footer will not grow or shrink */
-  padding: 40px 0;
-  background-color: #f8f8f8;
-  border-top: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 50px;
+  margin-left: 16%;
+  margin-right: 16%;
+  background-color: transparent;
+  border-top: 2px solid #ccc;
+  z-index: 3;
 }
 
 /* Add your custom CSS styles here */
@@ -275,20 +307,14 @@ body {
 
 .footer-section p {
   margin-bottom: 12px;
+  color: black;
 }
 
-.footer-section {
-  padding: 15px 0;
-  background-color: #f8f8f8;
-  border-top: 1px solid #ccc;
-}
 
-.footer-section p {
-  margin-bottom: 12px;
-}
+
 
 .footer-section a {
-  color: #555;
+  color: black;
   text-decoration: none;
 }
 
