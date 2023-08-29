@@ -102,7 +102,7 @@ body{
     .gradient-background {
         background: linear-gradient(45deg, #f4fdff, #f3dad8, #949e9e, #6b7d7d);
         background-size: 400% 400%;
-        animation: gradientAnimation 15s infinite;
+        animation: gradientAnimation 10s infinite;
         color: white;
         padding: 20px; /* Adjust padding as needed */
     }
