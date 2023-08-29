@@ -35,6 +35,7 @@
       font-size: 42px;
       text-align: left; /* Update: Align "Projects" to the left */
       margin-bottom: 30px;
+      color: #616464;
       font-weight: bold;
     }
 
@@ -49,11 +50,13 @@
       font-weight: bold;
       cursor: pointer;
       padding: 10px;
+      color: #616464;
       transition: background-color 0.3s ease-in-out;
     }
 
     .project-name:hover {
-      background-color: #ff0000;
+      background-color: #949e9e;
+      border-radius: 8px;
     }
 
     .project-details {
@@ -86,7 +89,9 @@
       }
 
       .project-description {
-        margin-top: 20px;
+        margin-top: 5px;
+        font-size: 20px;
+        color: #949e9e;
       }
 
       .project-image {
@@ -96,10 +101,10 @@
   </style>
 </head>
 
-<body>
+<body  class="gradient-background">
   <div class="main-view">
   <div id="headerPlaceholder"></div>
-  <main id="PAGES_CONTAINER" class="PAGES_CONTAINER" tabindex="-1" data-main-content="true">
+  <main id="PAGES_CONTAINER" class="PAGES_CONTAINER " tabindex="-1" data-main-content="true">
     <div class="container">
       <h1 class="page-title">Projects</h1>
       

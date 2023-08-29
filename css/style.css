@@ -1,6 +1,7 @@
 body{
     background-color: #f3f3f3;
 }
+
 .custom-btn span.custom-btn-text {
   display: flex;
   justify-content: center;
@@ -11,7 +12,70 @@ body{
   font-weight: bold; /* Make the text bold */
   color: black; /* Set the text color to black */
 }
+.image-column {
+  position: relative; /* Needed for absolute positioning inside */
+}
 
+.image-zoom {
+  overflow: hidden; /* Hide any overflowing content */
+  transition: transform 0.3s ease; /* Add a smooth transition to the transform property */
+}
+
+.image-zoom img {
+  max-width: 100%;
+  display: block;
+  transition: transform 0.3s ease; /* Add the same transition to the image itself */
+}
+.image-column {
+  position: relative;
+}
+
+.image-hotspot {
+  position: relative;
+  overflow: hidden;
+}
+
+.hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.tooltip {
+  position: absolute;
+  top: -35px;
+  left: -15px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.image-hotspot:hover .hotspot {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.image-hotspot:hover .tooltip {
+  opacity: 1;
+}
+
+
+.image-column:hover .image-zoom {
+  transform: scale(1.1); /* Zoom in effect on hover */
+}
+
+.image-column:hover img {
+  transform: scale(1.1); /* Zoom in effect on hover */
+}
 .image-column img {
   filter: grayscale(100%);
 }
@@ -69,8 +133,9 @@ body{
     }
   
     .border-top,
-    .border-bottom {
-      border-color: #555;
+    .border-right {
+      border-color: #ccc;
+
     }
   
     .font-italic {
@@ -291,12 +356,13 @@ body {
 
 .footer-section {
   flex: 0 0 auto; /* The footer will not grow or shrink */
+  
   padding: 20px;
   border-radius: 50px;
   margin-left: 16%;
   margin-right: 16%;
   background-color: transparent;
-  border-top: 2px solid #ccc;
+  border-top: 3px solid #ccc;
   z-index: 3;
 }
 
