@@ -1,190 +1,331 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Main HTML File</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous" />
 
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Add Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-</head>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+    <style>
+      h1 {
+        font-family: "Fira Mono", monospace;
+        font-size: 5em;
+        margin: 0;
+        text-align: center;
+      }
 
-<body class="gradient-background">
-    <div class="main-view">
+      h1 span {
+        display: inline-block;
+        margin: 0 -0.3em;
+        padding: 0.15em;
+      }
+
+      h1 span:nth-of-type(odd) {
+        background: rebeccapurple;
+        transform: rotate(calc(3deg * -1));
+      }
+
+      h1 span:nth-of-type(even) {
+        background: darkslategrey;
+        transform: rotate(3deg);
+      }
+
+      h2 {
+        font-family: "Satisfy", cursive;
+        font-size: 4em;
+        margin: 0.1em 0;
+
+        text-align: center;
+      }
+
+      h3 {
+        font-family: "Sriracha", cursive;
+        font-size: 3em;
+        margin: 0;
+        color: snow;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      h4 {
+        font-family: "Kaushan Script", cursive;
+        font-size: 2.5em;
+        margin: 0;
+      }
+
+      p {
+        font-size: 2em;
+        margin: 0;
+      }
+
+      .menu::before {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: darkslategrey;
+        transform: skewY(-3deg);
+        z-index: -1;
+      }
+
+      .menu {
+        background-color: rebeccapurple;
+        display: grid;
+        margin: 3.1em auto;
+        padding: 2em 1em;
+
+        position: relative; /* Add this line */
+        row-gap: 2em;
+        width: 32em;
+      }
+
+      .item {
+        color: snow;
+        margin-bottom: 1em;
+        margin-left: 5em;
+        margin-right: 1em;
+      }
+
+      /* WIDE SCREENS / PRINT */
+      @media (min-width: 1024px), print {
+        .menu {
+          width: 60em;
+        }
+
+        .menu::before {
+          transform: rotate(-6deg);
+        }
+
+        .course {
+          column-gap: 2em;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .course h3 {
+          grid-column: 1 / span 2;
+        }
+      }
+
+      /* PRINT */
+      @media print {
+        body {
+          background-color: white;
+          background-image: none;
+          color: black;
+        }
+
+        h1 {
+          font-family: "Fira Sans", sans-serif;
+          font-size: 48px;
+        }
+
+        h1 span {
+          background-color: white !important;
+          margin: 0;
+          padding: 0;
+
+          transform: none !important;
+        }
+
+        h2 {
+          font-size: 40px;
+          margin: 0;
+        }
+
+        h3 {
+          font-size: 36px;
+        }
+
+        h4 {
+          font-size: 32px;
+        }
+
+        p {
+          font-size: 20px;
+        }
+
+        .header-icon,
+        #dark_toggle + label {
+          display: none !important;
+        }
+
+        .menu {
+          background-color: white;
+          margin: 0 auto;
+          padding: 0;
+          row-gap: 24px;
+          width: 100%;
+          color: black;
+        }
+
+        .menu::before {
+          display: none;
+        }
+
+        .course {
+          column-gap: 24px;
+        }
+
+        .item {
+          margin-bottom: 16px;
+          margin-left: 24px;
+          margin-right: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="dual-bg content" style="background-color: #f2f5f4">
+    
+      <div class="main-view" style="height: auto">
         <div id="headerPlaceholder"></div>
 
-        <main class="container-fluid ">
-
-            <div class="col-12">
-                <h1 class="font-weight-bold" style="font-size:42px;">Resume</h1>
-            </div>
-
-            <!-- Work Experience Section -->
-            <section class="row mb-5 border-top " style="border:3px solid #ccc; border-right:1px solid #ccc; border-radius:10px; ">
-                <div class="col-md-5">
-                    <h2 class="font-weight-bold headSubject">Work Experience</h2>
-                </div>
-                <div class="col-md-5">
-                    <span class="font-weight-bold">Editor</span>
-                    <p class="font-italic">2035 - Present</p>
-                    <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just
-                        click
-                        “Edit Text” or double click me to add your own content and make changes to the font.</p>
-
-                    <span class="font-weight-bold">Writer at Large</span>
-                    <p class="font-italic">2035 - 2035</p>
-                    <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just
-                        click
-                        “Edit Text” or double click me to add your own content and make changes to the font.</p>
-
-                    <span class="font-weight-bold">Intern</span>
-                    <p class="font-italic">2035 - 2035</p>
-                    <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just
-                        click
-                        “Edit Text” or double click me to add your own content and make changes to the font.</p>
-                </div>
-            </section>
-
-            <!-- Education Section -->
-            <section class="row mb-5  border-top " style="border:3px solid #ccc; border-right:1px solid #ccc; border-radius:10px;">
-                <div class="col-md-5">
-                    <h2 class="font-weight-bold headSubject">Education</h2>
-                </div>
-                <div class="col-md-5">
-                    <span class="font-weight-bold">Master’s Degree</span>
-                    <p class="font-italic">2035 - 2035</p>
-                    <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me. Let your users
-                        get
-                        to
-                        know you.</p>
-
-                    <span class="font-weight-bold">Bachelor's Degree</span>
-                    <p class="font-italic">2035 - 2035</p>
-                    <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me. Let your users
-                        get
-                        to
-                        know you.</p>
-                </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section class="row mb-5  border-top " style="border:3px solid #ccc; border-right:1px solid #ccc; border-radius:10px;">
-                <div class="col-5">
-                    <h2 class="font-weight-bold headSubject">Skills & Expertise</h2>
-                </div>
-                <div class="col-md-5">
-                    <ul class="font-italic">
-                        <li>
-                            <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me.</p>
-                        </li>
-                        <li>
-                            <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me.</p>
-                        </li>
-                        <li>
-                            <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me.</p>
-                        </li>
-                        <li>
-                            <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me.</p>
-                        </li>
-                        <li>
-                            <p class="font-italic">I'm a paragraph. Click here to add your own text and edit me.</p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-        </main>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@700&family=Fira+Sans:wght@400;500;700&family=Satisfy&family=Sriracha&family=Kaushan+Script&display=swap" />
+        <div style="margin-bottom: 40px"></div>
+        <h2>Utsav Karki</h2>
+        <h1>
+          <span>R</span>
+          <span>E</span>
+          <span>S</span>
+          <span>U</span>
+          <span>M</span>
+          <span>E</span>
+        </h1>
+      </div>
     </div>
-    <div id="footerPlaceholder"></div>
+    <div class="menu">
+      <div class="course">
+        <h3>Starters</h3>
+        <div class="item">
+          <h4>Vedas College</h4>
+          <p>Bachelors Degree.</p>
+          <p>Computer Science.</p>
+        </div>
+        <div class="item">
+          <h4>First Jobs</h4>
+          <p>ProfitX Web Finance Backend Developer.</p>
+        </div>
+      </div>
+      <div class="course">
+        <h3>Experience</h3>
+        <div class="item">
+          <h4>Profit X</h4>
+          <p>2023/05 - 2023/11</p>
+          <p>Platform, Web.</p>
+          <p>PHP, Laravel, Livewire.</p>
+        </div>
+        <div class="item">
+          <h4>Dasraa</h4>
+          <p>2023/11 - Today</p>
+          <p>Real State, Travel Agency.</p>
+          <p>Javascript, Vue, Laravel, .</p>
+        </div>
+      </div>
+      <div class="course">
+        <h3>Skills</h3>
+        <div class="item">
+          <h4>Languages</h4>
+          <p>HTML/CSS, Javascript, Laravel, Livewire, Python, Vue, whatever.</p>
+        </div>
+        <div class="item">
+          <h4>Quality</h4>
+          <p>Crafts with loving care.</p>
+          <p>Thoughtfully designed.</p>
+          <p>Thoroughly tested.</p>
+        </div>
+      </div>
+    </div>
+    <!--Btn To Top-->
+    <section
+      class="custom-resume-btn"
+      style="display: flex; justify-content: center; width: 100%">
+      <div class="text-center mt-5 custom-resume-btn" style="display: flex">
+        <button
+          class="mb-5 custom-resume-btn"
+          onclick="topFunction()"
+          id="myBtn"
+          title="Go to top">
+          Go To Top
+        </button>
+      </div>
+      <script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction();
+        };
+
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            mybutton.style.margin = "auto";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+    </section>
+    <!--Btn to Top End-->
+
+    <!-- <div id="footerPlaceholder"></div> -->
 
     <!-- Add Bootstrap and jQuery JS scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Function to handle clicking on paragraphs
-        function handleParagraphClick(event) {
-            event.target.classList.add('animated', 'bounceIn'); // Use Animate.css for animation
-        }
-
-        // Function to handle scrolling to sections smoothly
-        function scrollToSection(sectionId) {
-            document.querySelector(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Attach click event listeners to paragraphs
-        document.addEventListener('DOMContentLoaded', function () {
-            const paragraphs = document.querySelectorAll('p.font-italic');
-            paragraphs.forEach((p) => {
-                p.classList.add('interactive');
-                p.addEventListener('click', handleParagraphClick);
-            });
-
-            // Attach click event listeners to navigation links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach((link) => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const sectionId = link.getAttribute('href');
-                    scrollToSection(sectionId);
-                });
-            });
+      // Function to handle scrolling to sections smoothly
+      function scrollToSection(sectionId) {
+        document.querySelector(sectionId).scrollIntoView({
+          behavior: "smooth",
         });
+      }
 
-        function includeHTML() {
-            fetch("header.html")
-                .then((response) => response.text())
-                .then((html) => {
-                    // Inject the content into the div with id "headerPlaceholder"
-                    document.getElementById("headerPlaceholder").innerHTML = html;
-                })
-                .catch((error) =>
-                    console.error("Error fetching included.html:", error)
-                );
-
-            fetch("footer.html")
-                .then((response) => response.text())
-                .then((html) => {
-                    // Inject the content into the div with id "headerPlaceholder"
-                    document.getElementById("footerPlaceholder").innerHTML = html;
-                })
-                .catch((error) =>
-                    console.error("Error fetching included.html:", error)
-                );
-
-        }
-
-        // Call the includeHTML function to include the content
-        includeHTML();
+      function includeHTML() {
+        fetch("header.html")
+          .then((response) => response.text())
+          .then((html) => {
+            // Inject the content into the div with id "headerPlaceholder"
+            document.getElementById("headerPlaceholder").innerHTML = html;
+          })
+          .catch((error) =>
+            console.error("Error fetching included.html:", error)
+          );
+      }
+      includeHTML();
     </script>
-    <script>
-        // Phone number click event
-        document
-            .getElementById("phoneNum")
-            .addEventListener("click", function () {
-                alert("Call the number: 123-456-7890");
-            });
-
-        // Email address click event
-        document
-            .getElementById("emailAddress")
-            .addEventListener("click", function (e) {
-                e.preventDefault();
-                alert("Send an email to info@mysite.com");
-            });
-    </script>
-</body>
-
+  </body>
 </html>

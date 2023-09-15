@@ -13,7 +13,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 <!-- Add Animate.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -22,7 +23,7 @@
  crossorigin="anonymous"></script>
   <style>
     /* Custom CSS styles */
-    body {
+    /*body {
       font-family: Arial, sans-serif;
       background-color: #f3f3f3;
     }
@@ -33,7 +34,7 @@
 
     .page-title {
       font-size: 42px;
-      text-align: left; /* Update: Align "Projects" to the left */
+      text-align: left; 
       margin-bottom: 30px;
       color: #616464;
       font-weight: bold;
@@ -76,7 +77,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    /* Add any additional custom styles here */
+    /* Add any additional custom styles here 
     @media (min-width: 768px) {
       .project-section {
         display: flex;
@@ -97,18 +98,233 @@
       .project-image {
         padding-left: 20px;
       }
+    } */
+    /* Custom CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
     }
+
+    .container {
+      padding-top: 30px;
+    }
+    .web-projects-grid-container {
+      display: grid;
+      width: 80%;
+      padding-bottom: 60px;
+      margin-left: 10%;
+      grid-row-gap: 75px;
+      grid-template-areas:
+        "text text text text"
+        "tech prod user trib"
+        "char . . .";
+    }
+    
+    .project-tile {
+      text-align: center;
+    }
+    
+    #charsheet {
+      grid-area: char;
+    }
+    
+    img:hover {
+      animation: expand 0.1s linear 0s 1 forwards;
+    }
+    
+    @keyframes expand {
+      0% {
+        opacity: 1.0;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0.6;
+      }
+    }
+    
+    img {
+      width: 400px;
+      height: 250px;
+      box-shadow: 0px 0px 2px 1px black;
+    }
+    
+    #web-text, #proj-text {
+      width: 100%;
+      padding-bottom: 25px;
+      font-size: 2em;
+      text-align: center;
+      grid-area: text;
+    }
+    
+    .projects-grid-container {
+      padding-bottom: 60px;
+      padding-top: 60px;
+      width: 80vw;
+      margin: 0 auto;
+      display: grid;
+      grid-template-areas: 
+        "text"
+        "flappy"
+    }
+    
+    .game-projects-grid-container {
+      padding-bottom: 60px;
+      padding-top: 60px;
+      width: 80vw;
+      margin: 0 auto;
+      display: grid;
+      grid-template-areas: 
+        "text text text text"
+        ". racing bleach_game .";
+    }
+    
+    #flappy {
+      grid-area: flappy;
+    }
+    
+    #racing {
+      grid-area: racing;
+    }
+    
+    #bleach_game {
+      grid-area: bleach_game;
+    }
+    
+    #user-form {
+      grid-area: user;
+    }
+    
+    #technical-doc {
+      grid-area: tech;
+    }
+    
+    #product-landing {
+      grid-area: prod;
+    }
+    
+    #tribute-page {
+      grid-area: trib;
+    }
+    
+    
+    
+ 
+    
+    
+    
+    .pic-caption {
+      font-size: 1.5em;
+    }
+    
+    .separator {
+      border: 1px solid black;
+      width: 100%;
+    }
+    
+    #title, #subtitle {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      margin-top: 12vh;
+    }
+    
+    #subtitle {
+      margin-top: 28vh;
+      font-size: 1.5em;
+    }
+    
+    @media only screen and (max-width: 535px) {
+      #navbar {
+        height: 75px;
+      }
+      img {
+        width: 255px;
+        height: 158px;
+        box-shadow: 0px 0px 2px 1px black;
+      }
+      #title, #subtitle {
+        font-size: 1em;
+      }
+      h1 {
+        font-size: 1.1em;
+      }
+      #web-text, #proj-text {
+        font-size: 1.3em;
+      }
+      .pic-caption {
+        font-size: 1em;
+      }
+    
+      #welcome-section {
+        margin-top: 50px;
+      }
+      #footer-text, #footer-email {
+        font-size: 1em;
+      }
+    }
+    
+    @media only screen and (max-width: 1920px) {
+      .web-projects-grid-container {
+        grid-template-areas: 
+          "text text text"
+          "tech prod user"
+          "trib char .";
+      }
+      .project-tile {
+        padding-bottom: 50px;
+      }
+    }
+    
+    @media only screen and (max-width: 1550px) {
+      .web-projects-grid-container {
+        grid-template-areas:
+          "text text"
+          "tech prod"
+          "user trib"
+          "char .";
+      }
+    }
+    
+    @media only screen and (max-width: 1050px) {
+      .web-projects-grid-container {
+        grid-template-areas: 
+          "text"
+          "tech"
+          "prod"
+          "user"
+          "trib"
+          "char";
+      }
+      .game-projects-grid-container {
+        grid-template-areas:
+          "text"
+          "racing"
+          "bleach_game";
+      }
+    }
+    
+   
+    
+  
+  
+   
+    
+   
+   
   </style>
 </head>
 
-<body  class="gradient-background">
+<body  class=" dual-bg content">
+
   <div class="main-view">
   <div id="headerPlaceholder"></div>
   <main id="PAGES_CONTAINER" class="PAGES_CONTAINER " tabindex="-1" data-main-content="true">
-    <div class="container">
+    <!-- <div class="container">
       <h1 class="page-title">Projects</h1>
       
-      <!-- Project 01 -->
+     
       <section class="comp-kjd12gfq CohWsy wixui-column-strip project-section">
         <div class="row">
           <div class="col-md-6">
@@ -131,7 +347,7 @@
         </div>
       </section>
 
-      <!-- Project 02 -->
+    
       <section class="comp-kjgw3l79 CohWsy wixui-column-strip project-section">
         <div class="row">
           <div class="col-md-6">
@@ -156,7 +372,7 @@
         </div>
       </section>
 
-      <!-- Project 03 -->
+     
       <section class="comp-kjgwirgn CohWsy wixui-column-strip project-section">
         <div class="row">
           <div class="col-md-6">
@@ -179,9 +395,79 @@
         </div>
       </section>
     </div>
-    </div>
+    </div> -->
+      
+      
+          <div class="projects-grid-container">
+            <div id="proj-text"><h1><label>AI Projects</label></h1>
+              <div class="separator"></div>
+            </div>
+            <div class="project-tile" id="flappy">
+              <div><a href="https://github.com/Cyniikal/Flappy-AI" alt="Flappy Bird AI" target="_blank"><img src="https://image.ibb.co/dK4tx8/Flappybird_Player.png" alt="Flappy AI Picture"></img></a></div>
+              <div><label class="pic-caption">Python/Tensorflow Flappybird AI</label></div>
+            </div>
+          </div>
+          <div class="web-projects-grid-container" id="projects">
+              <div id="web-text"><h1><label>Web Projects</label></h1>
+                <div class="separator"></div>
+              </div>
+            
+              <div class="project-tile" id="technical-doc">
+                <div>
+                  <a href="https://codepen.io/cyniikal/full/VdQbPm/" target="_blank"><img src="https://image.ibb.co/nAzwFT/Ark_Technical_Documentation.png" alt="Ark Technical Documentation Page"/></a></div>
+                
+              <div><label class="pic-caption">Technical Documentation</label></div>
+            </div>
+            
+              <div class="project-tile" id="charsheet">
+                <div>
+                  <a href="https://codepen.io/cyniikal/full/ZRgYEd/" target="_blank"><img src="https://image.ibb.co/gYfYHT/charsheet.png" alt="Minimalistic Character Sheet for D&D"/></a></div>
+                <div><label class="pic-caption">Minimalist Character Sheet (D&D/Pathfinder)</label></div>
+              </div>
+            
+              <div class="project-tile" id="product-landing">
+                <div>
+                  <a href="https://codepen.io/cyniikal/full/ERXMmJ/" target="_blank"><img src="https://image.ibb.co/kivspo/Product_Landing.png" alt="Product Landing Page"/></a></div>
+                <div><label class="pic-caption">Product Landing Page</label></div>
+              </div>
+              <div class="project-tile" id="user-form">
+                <div>
+                  <a href="https://codepen.io/cyniikal/full/RJgXxM/" target="_blank"><img src="https://image.ibb.co/nRiOvT/Experience_User_Form.png" alt="Ark Experience User Form" /></a></div>
+                <div><label class="pic-caption">User Experience Form</label></div>
+              </div>
+              <div class="project-tile" id="tribute-page">
+                <div>
+                  <a href="https://codepen.io/cyniikal/full/XYgxOY/" target="_blank"><img src="https://image.ibb.co/npmnN8/Tribute_Pagre.png" alt="David Cage Sarcastic Tribute Page" /></a></div>
+                <div><label class="pic-caption">Tribute Page</label></div>
+              </div>
+            </div>
+          <div class="game-projects-grid-container">
+            
+              <div id="proj-text"><h1><label>Game Projects</label></h1>
+                <div class="separator"></div>
+              </div>
+            
+              <div class="project-tile" id="racing">
+                <div><a href="https://docs.google.com/presentation/d/1y8COOlEVZcP4_2pv6cLW5oWHjlQ9OPkiLrIobsf80Z8/edit?usp=sharing" alt="Racing Game" target="_blank"><img src="https://preview.ibb.co/dWGVvT/Racing_Game.png" alt="Flappy AI Picture"></img></a></div>
+                <div><label class="pic-caption">Futuristic Racing Game in C#</label></div>
+              </div>
+        
+              <div class="project-tile" id="bleach_game">
+                <div><a href="https://github.com/Cyniikal/BUBGame" alt="Bleach Multiplayer Fan Game" target="_blank">
+                  <img src="https://image.ibb.co/hQUfn8/bub.png" alt="Bleach Game Picture"></img></a></div>
+                <div><label class="pic-caption">Online Multiplayer Bleach Fan Game</label></div>
+              </div>
+    
+            </div>
+          
+          </div>
+     
+    
+      
 
-    <div id="footerPlaceholder"></div>
+
+
+    <!-- <div id="footerPlaceholder"></div> -->
     <script>
       // Function to toggle project details
       function toggleProjectDetails(projectId) {
@@ -211,7 +497,7 @@
             console.error("Error fetching included.html:", error)
           );
 
-        fetch("footer.html")
+        /*fetch("footer.html")
           .then((response) => response.text())
           .then((html) => {
             // Inject the content into the div with id "headerPlaceholder"
@@ -219,7 +505,7 @@
           })
           .catch((error) =>
             console.error("Error fetching included.html:", error)
-          );
+          );*/
          
       }
 
