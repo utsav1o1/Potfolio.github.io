@@ -13,6 +13,10 @@ body{
   color: #1b1b1b;
 }
 
+.content-nav{
+    margin-left: 18%;
+}
+
 .custom-resume-btn button {
   --green: darkslategrey;
   font-size: 15px;
@@ -217,7 +221,7 @@ section .title span a::after {
   text-align:center;
   background: transparent;
   position: fixed;
-  top: 65%;
+  top: 70%;
   left: 92%;
   width: fit-content;
   transform: translateY(-80%);
@@ -439,8 +443,8 @@ a:active {
     text-align:center;
     background: transparent;
     position: sticky;
-    /* top: 100%; */
-    /* left: 20%; */
+    top: 100%; 
+     left: 16%;
     width: fit-content;
     /* transform: translateY(-80%); */
     display: flex;
@@ -668,6 +672,12 @@ a:active {
  }
  /* Media query for responsiveness */
 @media (max-width: 768px) {
+  .content-nav{
+    margin-left: -3%;
+    gap: 25px;
+    margin-top: 0%;
+    margin-bottom: 8%;
+}
     .home-info {
       flex-direction: column;
       align-items: center; 

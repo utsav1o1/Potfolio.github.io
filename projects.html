@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Utsav Karki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1A3C34;
+      --primary-light: #2E6B5E;
+      --accent: #E07B39;
+      --accent2: #4DA89C;
+      --green: #22C55E;
+      --bg: #F7F5F0;
+      --bg2: #EDEAE3;
+      --bg3: #E4E0D7;
+      --card: #FFFFFF;
+      --text: #1C1917;
+      --text2: #57534E;
+      --text3: #A8A29E;
+      --border: #D6D3CC;
+      --shadow: rgba(28, 25, 23, 0.06);
+      --shadow-md: rgba(28, 25, 23, 0.10);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      background-image:
+        linear-gradient(rgba(26, 60, 52, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 60, 52, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    .nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(214, 211, 204, 0.8);
+      border-radius: 99px;
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      z-index: 1000;
+      box-shadow:
+        0 -2px 0 0 rgba(255, 255, 255, 0.6) inset,
+        0 8px 32px rgba(28, 25, 23, 0.12),
+        0 2px 8px rgba(28, 25, 23, 0.06);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px 8px 10px;
+      text-decoration: none;
+      border-right: 1px solid var(--border);
+      margin-right: 6px;
+    }
+
+    .nav-brand-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: white;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+    }
+
+    .nav-brand-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .nav-brand-text span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text2);
+      text-decoration: none;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link i {
+      font-size: 0.82rem;
+      width: 14px;
+      text-align: center;
+    }
+
+    .nav-link:hover {
+      background: var(--bg2);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .nav-link--cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 9px 18px;
+      margin-left: 4px;
+      font-weight: 600;
+    }
+
+    .nav-link--cta:hover {
+      background: #c76a28;
+      color: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        bottom: 18px;
+        padding: 5px 6px;
+      }
+      .nav-brand-text {
+        display: none;
+      }
+      .nav-link span {
+        display: none;
+      }
+      .nav-link {
+        padding: 9px 11px;
+      }
+      .nav-link--cta {
+        padding: 9px 13px;
+      }
+      .nav-link--cta span {
+        display: none;
+      }
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 140px 0 60px;
+      text-align: center;
+    }
+
+    .page-header .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--primary);
+      background: rgba(14, 66, 51, 0.08);
+      padding: 6px 14px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 16px;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: var(--text2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Filter Buttons */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+      padding-bottom: 100px;
+    }
+
+    .work-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .work-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+
+    .work-image {
+      height: 180px;
+      width: 100%;
+      position: relative;
+    }
+
+    .work-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.1));
+      pointer-events: none;
+    }
+
+    .work-info {
+      padding: 24px;
+    }
+
+    .work-flag {
+      font-size: 1.5rem;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .work-info h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .work-info p {
+      font-size: 0.9rem;
+      color: var(--text2);
+      margin-bottom: 12px;
+    }
+
+    .work-stack {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      display: block;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .footer p {
+      color: var(--text2);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text2);
+      transition: all 0.2s;
+    }
+
+    .footer-social a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .footer h4 {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer li {
+      margin-bottom: 12px;
+    }
+
+    .footer a {
+      color: var(--text2);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      color: var(--text2);
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    .footer-bottom a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Dock -->
+  <nav class="nav" id="main-nav">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-mark">UK</div>
+      <span class="nav-brand-text">utsav<span>1o1</span></span>
+    </a>
+    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
+    <a href="projects.html" class="nav-link active"><i class="fas fa-briefcase"></i> <span>Projects</span></a>
+    <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> <span>Gallery</span></a>
+    <a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> <span>Blog</span></a>
+    <a href="index.html#contact" class="nav-link nav-link--cta"><i class="fas fa-paper-plane"></i> <span>Hire Me</span></a>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="section-label">Portfolio</span>
+      <h1>All Projects</h1>
+      <p>A comprehensive collection of websites and applications I've built for clients worldwide.</p>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="projects-grid">
+        <!-- UK Projects -->
+        <a href="https://www.solware.co.uk" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/solware.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇬🇧</span>
+            <h3>Solware UK</h3>
+            <p>NopCommerce electronics store with payment integration</p>
+            <span class="work-stack">NopCommerce · C# · Brevo</span>
+          </div>
+        </a>
+
+        <a href="https://www.ageuk.org.uk" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/ageuk.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇬🇧</span>
+            <h3>Age UK</h3>
+            <p>UK's leading charity website with CMS support</p>
+            <span class="work-stack">CMS · SEO Support</span>
+          </div>
+        </a>
+
+        <a href="https://gshepherdanimalhealth.co.uk" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/gshepherdanimalhealth.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇬🇧</span>
+            <h3>G. Shepherd Animal Health</h3>
+            <p>OpenCart animal health store with VPS setup</p>
+            <span class="work-stack">OpenCart · VPS · Cloudflare</span>
+          </div>
+        </a>
+
+        <a href="https://thelondonelectricalcompliancecompany.co.uk" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/thelondonelectricalcompliancecompany.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇬🇧</span>
+            <h3>London Electrical Compliance</h3>
+            <p>Electrical services company website</p>
+            <span class="work-stack">WordPress · CyberPanel</span>
+          </div>
+        </a>
+
+        <a href="https://www.beaumont.com" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/beaumont.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇬🇧</span>
+            <h3>Beaumont</h3>
+            <p>Luxury goods retailer with e-commerce</p>
+            <span class="work-stack">WordPress · WooCommerce</span>
+          </div>
+        </a>
+
+        <a href="https://www.burleightravel.co.uk" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/burleightravel.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇬🇧</span>
+            <h3>Burleigh Travel</h3>
+            <p>Travel agency website with custom theme</p>
+            <span class="work-stack">WordPress · Custom Theme</span>
+          </div>
+        </a>
+
+        <!-- Israel Projects -->
+        <a href="https://the-magnificent7.com" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/the-magnificent7.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇮🇱</span>
+            <h3>The Magnificent 7</h3>
+            <p>Online backgammon club platform</p>
+            <span class="work-stack">Laravel · MySQL</span>
+          </div>
+        </a>
+
+        <a href="https://thediamonds.co.il" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/thediamonds.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇮🇱</span>
+            <h3>The Diamonds</h3>
+            <p>Israeli football club platform with RTL support</p>
+            <span class="work-stack">Laravel · Hebrew RTL</span>
+          </div>
+        </a>
+
+        <!-- Australia Projects -->
+        <a href="https://multidynamic.com.au" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/multidynamic.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇦🇺</span>
+            <h3>Multi Dynamic</h3>
+            <p>Australian real estate platform with maps</p>
+            <span class="work-stack">Laravel · Google Maps API</span>
+          </div>
+        </a>
+
+        <!-- Nepal Projects -->
+        <a href="https://travelwithraby.com" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/travelwithraby.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇳🇵</span>
+            <h3>Travel With Raby</h3>
+            <p>Himalayan travel site for trekking tours</p>
+            <span class="work-stack">WordPress · Elementor</span>
+          </div>
+        </a>
+
+        <a href="https://globalnepaltreks.com" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/globalnepaltreks.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇳🇵</span>
+            <h3>Global Nepal Treks</h3>
+            <p>Trekking agency website with booking</p>
+            <span class="work-stack">Next.js · React</span>
+          </div>
+        </a>
+
+        <!-- Other Projects -->
+        <a href="https://willywonka.vip" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/willywonka.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+            <h3>Willy Wonka VIP</h3>
+            <p>Online competitions platform with PM2</p>
+            <span class="work-stack">Next.js · Node.js · PM2</span>
+          </div>
+        </a>
+
+        <a href="https://seohealthcheck.co.uk" target="_blank" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/seohealthcheck.png'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🌐</span>
+            <h3>SEO Health Check</h3>
+            <p>My personal SaaS SEO analysis tool</p>
+            <span class="work-stack">PHP · Laravel · SaaS</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Utsav Karki</h3>
+          <p>Full-Stack Developer & VPS Specialist. Specializing in Laravel, NopCommerce, WordPress, and server management.</p>
+          <div class="footer-social">
+            <a href="https://github.com/utsav1o1" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank"><i class="fas fa-hourglass-half"></i></a>
+            <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">NopCommerce</a></li>
+            <li><a href="index.html#services">VPS Management</a></li>
+            <li><a href="index.html#services">Email Marketing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="https://seohealthcheck.co.uk" target="_blank">SEO Health Check</a></li>
+            <li><a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank">Hire on PPH</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Utsav Karki · Full-Stack Developer & VPS Specialist · Nepal</p>
+        <p>Serving UK, Australian & global clients via <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank">PeoplePerHour</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.work-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active state
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

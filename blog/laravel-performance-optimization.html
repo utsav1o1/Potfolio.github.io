@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laravel Performance Optimization — Utsav Karki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1A3C34;
+      --accent: #E07B39;
+      --bg: #F7F5F0;
+      --bg2: #EDEAE3;
+      --card: #FFFFFF;
+      --text: #1C1917;
+      --text2: #57534E;
+      --text3: #A8A29E;
+      --border: #D6D3CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      background-image: linear-gradient(rgba(26, 60, 52, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 60, 52, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    h1, h2, h3 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    
+    .nav {
+      position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(24px);
+      border: 1px solid rgba(214, 211, 204, 0.8); border-radius: 99px;
+      padding: 6px 8px; display: flex; align-items: center; gap: 2px; z-index: 1000;
+      box-shadow: 0 8px 32px rgba(28, 25, 23, 0.12);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; text-decoration: none; border-right: 1px solid var(--border); margin-right: 6px; }
+    .nav-brand-mark { width: 32px; height: 32px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: white; }
+    .nav-brand-text { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .nav-brand-text span { color: var(--accent); font-weight: 700; }
+    .nav-link { display: flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 99px; font-size: 0.82rem; font-weight: 500; color: var(--text2); text-decoration: none; transition: all 0.18s; }
+    .nav-link:hover { background: var(--bg2); color: var(--primary); }
+    .nav-link.active { background: var(--primary); color: #fff; }
+    
+    .article-header { padding: 140px 0 40px; text-align: center; }
+    .article-meta { display: flex; gap: 16px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+    .article-date { font-size: 0.85rem; color: var(--text3); }
+    .article-category { font-size: 0.75rem; background: var(--bg2); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-weight: 600; }
+    .article-header h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px; line-height: 1.2; }
+    .article-header .lead { font-size: 1.15rem; color: var(--text2); max-width: 600px; margin: 0 auto; }
+    
+    .article-content { padding: 40px 0 80px; }
+    .article-content h2 { font-size: 1.8rem; margin: 48px 0 20px; color: var(--text); }
+    .article-content h3 { font-size: 1.3rem; margin: 32px 0 16px; color: var(--text); }
+    .article-content p { margin-bottom: 20px; color: var(--text2); font-size: 1.05rem; }
+    .article-content ul, .article-content ol { margin: 20px 0; padding-left: 28px; color: var(--text2); }
+    .article-content li { margin-bottom: 10px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content code { font-family: 'DM Mono', monospace; background: var(--bg2); padding: 2px 8px; border-radius: 4px; font-size: 0.9em; }
+    .article-content pre { background: var(--primary); color: white; padding: 20px; border-radius: 12px; overflow-x: auto; margin: 24px 0; font-family: 'DM Mono', monospace; font-size: 0.9rem; line-height: 1.6; }
+    .article-content pre code { background: none; padding: 0; color: inherit; }
+    .article-content blockquote { border-left: 4px solid var(--accent); padding-left: 24px; margin: 24px 0; font-style: italic; color: var(--text2); }
+    .article-content img { max-width: 100%; border-radius: 12px; margin: 24px 0; }
+    .article-content a { color: var(--primary); text-decoration: underline; }
+    
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 600; padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; transition: all 0.2s; margin-bottom: 32px; }
+    .back-link:hover { background: var(--primary); color: white; }
+    
+    .share-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .share-section h4 { margin-bottom: 16px; }
+    .share-buttons { display: flex; gap: 12px; }
+    .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; color: var(--text2); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: all 0.2s; }
+    .share-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+    
+    @media (max-width: 768px) {
+      .nav { bottom: 18px; top: auto; }
+      .nav-brand-text { display: none; }
+      .nav-link span { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">UK</div>
+      <span class="nav-brand-text">utsav<span>1o1</span></span>
+    </a>
+    <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
+    <a href="../blog.html" class="nav-link active"><i class="fas fa-blog"></i> <span>Blog</span></a>
+  </nav>
+
+  <article>
+    <header class="article-header">
+      <div class="container">
+        <div class="article-meta">
+          <span class="article-date"><i class="far fa-calendar"></i> June 5, 2026</span>
+          <span class="article-category">Laravel</span>
+        </div>
+        <h1>Laravel Performance Optimization: From 5s to 200ms Load Time</h1>
+        <p class="lead">A comprehensive guide to optimizing Laravel applications. Learn about database indexing, caching strategies, query optimization, and deployment best practices.</p>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="container">
+        <a href="../blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+
+        <h2>Introduction</h2>
+        <p>When I first deployed a Laravel application for a UK-based client, their dashboard was taking <strong>5+ seconds</strong> to load. After implementing the techniques in this guide, we got it down to <strong>200ms</strong>. Here's how.</p>
+
+        <h2>Database Optimization</h2>
+
+        <h3>1. Use Indexes Wisely</h3>
+        <pre><code>-- Add indexes for frequently queried columns
+ALTER TABLE orders ADD INDEX idx_user_id (user_id);
+ALTER TABLE orders ADD INDEX idx_created_at (created_at);
+ALTER TABLE orders ADD INDEX idx_status (status);</code></pre>
+
+        <h3>2. Eager Loading to Prevent N+1</h3>
+        <pre><code>// Bad: N+1 query problem
+$orders = Order::all();
+foreach ($orders as $order) {
+    echo $order->user->name; // Triggers a query each time
+}
+
+// Good: Eager load relationships
+$orders = Order::with('user')->get();
+foreach ($orders as $order) {
+    echo $order->user->name; // No additional queries
+}</code></pre>
+
+        <h3>3. Select Only What You Need</h3>
+        <pre><code>// Bad: Selects all columns
+$users = User::all();
+
+// Good: Select specific columns
+$users = User::select('id', 'name', 'email')->get();</code></pre>
+
+        <h2>Caching Strategies</h2>
+
+        <h3>Route Caching</h3>
+        <pre><code>php artisan route:cache
+php artisan config:cache
+php artisan view:cache</code></pre>
+
+        <blockquote><strong>Important:</strong> Clear caches after deployment: <code>php artisan optimize:clear</code></blockquote>
+
+        <h3>Application Caching</h3>
+        <pre><code>// Cache expensive queries
+$products = Cache::remember('featured-products', 3600, function () {
+    return Product::where('featured', true)->with('category')->get();
+});</code></pre>
+
+        <h2>Deployment Best Practices</h2>
+        <ol>
+          <li><strong>Use Queue Workers</strong> for heavy tasks</li>
+          <li><strong>Implement Redis</strong> for session and cache storage</li>
+          <li><strong>Enable OPcache</strong> in PHP configuration</li>
+          <li><strong>Use CDNs</strong> for static assets</li>
+          <li><strong>Database Connection Pooling</strong></li>
+        </ol>
+
+        <h2>Results</h2>
+        <div style="overflow-x: auto; margin: 24px 0;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <thead>
+              <tr style="background: var(--primary); color: white;">
+                <th style="padding: 14px 20px; text-align: left; font-weight: 600;">Metric</th>
+                <th style="padding: 14px 20px; text-align: left; font-weight: 600;">Before</th>
+                <th style="padding: 14px 20px; text-align: left; font-weight: 600;">After</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 14px 20px;">Page Load</td>
+                <td style="padding: 14px 20px;">5.2s</td>
+                <td style="padding: 14px 20px; color: var(--primary); font-weight: 600;">0.2s</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 14px 20px;">DB Queries</td>
+                <td style="padding: 14px 20px;">85</td>
+                <td style="padding: 14px 20px; color: var(--primary); font-weight: 600;">12</td>
+              </tr>
+              <tr>
+                <td style="padding: 14px 20px;">Memory Usage</td>
+                <td style="padding: 14px 20px;">256MB</td>
+                <td style="padding: 14px 20px; color: var(--primary); font-weight: 600;">48MB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>Performance optimization is an ongoing process. Start with database queries, implement caching, and always measure before and after changes. Your users (and Google) will thank you.</p>
+
+<div class="share-section">
+  <h4>Share this article</h4>
+  <div class="share-buttons">
+    <a href="#" class="share-btn"><i class="fab fa-twitter"></i> Twitter</a>
+    <a href="#" class="share-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="#" class="share-btn"><i class="fab fa-hacker-news"></i> HN</a>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </article>
+</body>
+</html>

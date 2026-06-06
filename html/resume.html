@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Utsav Karki - Laravel Developer | PHP Backend Developer | Full-Stack Developer">
@@ -12,333 +11,648 @@
     <meta name="theme-color" content="#007bff">
     <meta name="msapplication-TileColor" content="#007bff">
     <meta name="msapplication-TileImage" content="favicon.png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1114108880101144" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1114108880101144"
-     crossorigin="anonymous"></script>
     <title>Resume</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous" />
-
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Add Animate.css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
-
-    <link rel="stylesheet" href="css/style.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
-      h1 {
-        font-family: "Fira Mono", monospace;
-        font-size: 5em;
-        margin: 0;
-        text-align: center;
-      }
-
-      h1 span {
-        display: inline-block;
-        margin: 0 -0.3em;
-        padding: 0.15em;
-      }
-
-      h1 span:nth-of-type(odd) {
-        background: rebeccapurple;
-        transform: rotate(calc(3deg * -1));
-      }
-
-      h1 span:nth-of-type(even) {
-        background: darkslategrey;
-        transform: rotate(3deg);
-      }
-
-      h2 {
-        font-family: "Satisfy", cursive;
-        font-size: 4em;
-        margin: 0.1em 0;
-
-        text-align: center;
-      }
-
-      h3 {
-        font-family: "Sriracha", cursive;
-        font-size: 3em;
-        margin: 0;
-        color: snow;
-        text-align: center;
-        text-transform: uppercase;
-      }
-
-      h4 {
-        font-family: "Kaushan Script", cursive;
-        font-size: 2.5em;
-        margin: 0;
-      }
-
-      p {
-        font-size: 2em;
-        margin: 0;
-      }
-
-      .menu::before {
-        content: "";
-        position: absolute;
-
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: darkslategrey;
-        transform: skewY(-3deg);
-        z-index: -1;
-      }
-
-      .menu {
-        background-color: rebeccapurple;
-        display: grid;
-        margin: 3.1em auto;
-        padding: 2em 1em;
-
-        position: relative; /* Add this line */
-        row-gap: 2em;
-        width: 32em;
-      }
-
-      .item {
-        color: snow;
-        margin-bottom: 1em;
-        margin-left: 5em;
-        margin-right: 1em;
-      }
-
-      /* WIDE SCREENS / PRINT */
-      @media (min-width: 1024px), print {
-        .menu {
-          width: 60em;
+        /* Scoped styles for resume content */
+        .resume-container {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: transparent;
         }
 
-        .menu::before {
-          transform: rotate(-6deg);
+        .resume-header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .course {
-          column-gap: 2em;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
+        .resume-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            animation: slideIn 1s ease;
+            font-weight: 700;
         }
 
-        .course h3 {
-          grid-column: 1 / span 2;
-        }
-      }
-
-      /* PRINT */
-      @media print {
-        body {
-          background-color: white;
-          background-image: none;
-          color: black;
-        }
-
-        h1 {
-          font-family: "Fira Sans", sans-serif;
-          font-size: 48px;
+        .resume-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(to right, #f7ca18, #ff6b6b);
+            border-radius: 2px;
         }
 
-        h1 span {
-          background-color: white !important;
-          margin: 0;
-          padding: 0;
-
-          transform: none !important;
+        .resume-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            color: #4a4a4a;
+            margin-top: 15px;
+            font-weight: 400;
         }
 
-        h2 {
-          font-size: 40px;
-          margin: 0;
+        .resume-section {
+            margin-bottom: 50px;
         }
 
-        h3 {
-          font-size: 36px;
+        .resume-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+            background: linear-gradient(to right, #f7ca18, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        h4 {
-          font-size: 32px;
+        .resume-section-title i {
+            color: #f7ca18;
+            font-size: 1.8rem;
         }
 
-        p {
-          font-size: 20px;
+        .resume-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #f7ca18, #ff6b6b);
         }
 
-        .header-icon,
-        #dark_toggle + label {
-          display: none !important;
+        .resume-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        .menu {
-          background-color: white;
-          margin: 0 auto;
-          padding: 0;
-          row-gap: 24px;
-          width: 100%;
-          color: black;
+        .resume-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+            border-image: linear-gradient(to right, #f7ca18, #ff6b6b) 1;
         }
 
-        .menu::before {
-          display: none;
+        .resume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .course {
-          column-gap: 24px;
+        .resume-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
-        .item {
-          margin-bottom: 16px;
-          margin-left: 24px;
-          margin-right: 24px;
+        .resume-card p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
-      }
+
+        .resume-card ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .resume-card ul li {
+            margin-bottom: 8px;
+        }
+
+        .resume-link {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.95rem;
+            color: #fff;
+            background: linear-gradient(to right, #f7ca18, #ff6b6b);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .resume-link:hover {
+            background: linear-gradient(to right, #ff6b6b, #f7ca18);
+            color: #fff;
+        }
+
+        .resume-link i {
+            margin-left: 8px;
+        }
+
+        /* Go to Top Button */
+        .custom-resume-btn {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 50px 0;
+        }
+
+        .custom-resume-btn button {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            background: linear-gradient(to right, #f7ca18, #ff6b6b);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .custom-resume-btn button:hover {
+            background: linear-gradient(to right, #ff6b6b, #f7ca18);
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 20px 5%;
+            }
+
+            .resume-title {
+                font-size: 2.5rem;
+            }
+
+            .resume-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .resume-section-title {
+                font-size: 1.8rem;
+            }
+
+            .resume-section-title i {
+                font-size: 1.5rem;
+            }
+
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .resume-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .resume-card p, .resume-card ul li {
+                font-size: 0.9rem;
+            }
+
+            .resume-link {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+
+            .custom-resume-btn button {
+                font-size: 0.95rem;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .resume-title {
+                font-size: 2rem;
+            }
+
+            .resume-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .resume-section-title {
+                font-size: 1.6rem;
+            }
+
+            .resume-section-title i {
+                font-size: 1.3rem;
+            }
+
+            .resume-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .resume-card p, .resume-card ul li {
+                font-size: 0.85rem;
+            }
+
+            .resume-link {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+            }
+
+            .custom-resume-btn button {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: none;
+                background-color: white;
+                color: black;
+            }
+
+            .resume-container {
+                padding: 10px;
+            }
+
+            .resume-title, .resume-section-title {
+                color: #000;
+                -webkit-text-fill-color: #000;
+            }
+
+            .resume-title::after, .resume-section-title::after {
+                background: #000;
+            }
+
+            .resume-card {
+                box-shadow: none;
+                border: none;
+            }
+
+            .resume-link, .custom-resume-btn, .social-container {
+                display: none;
+            }
+
+            .resume-content {
+                color: #000;
+            }
+        }
     </style>
-  </head>
-
-  <body class="dual-bg content" style="background-color: #f2f5f4">
-    
-      <div class="main-view" style="height: auto">
+</head>
+<body class="dual-bg content" style="background-color: #f2f5f4">
+    <div class="main-view">
         <div id="headerPlaceholder"></div>
+        <div class="social-container">
+            <div class="social-buttons">        
+                <!-- Facebook Button -->
+                <a href="https://www.facebook.com/utsav1o1" target="_blank" class="social-margin"> 
+                    <div class="social-icon facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i> 
+                    </div>
+                </a>
+                <!-- LinkedIn Button -->
+                <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" class="social-margin" target="_blank">
+                    <div class="social-icon linkedin">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                    </div> 
+                </a>
+                <!-- Github Button -->
+                <a href="https://github.com/utsav1o1" target="_blank" class="social-margin">
+                    <div class="social-icon github">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </div>
+                </a>
+                <!-- Youtube Button -->
+                <a href="https://www.youtube.com/@RandomUtsav" target="_blank" class="social-margin">
+                    <div class="social-icon youtube">
+                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                    </div> 
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/utsav_jung_karki/" target="_blank" class="social-margin">
+                    <div class="social-icon instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </div>
+                </a>
+                <!-- Google Drive Button --> 
+                <a href="https://drive.google.com/drive/folders/18u1W3KsquZUcAxpt7t5XiQOEPr250JEg" target="_blank" class="social-margin">
+                    <div class="social-icon google-drive">
+                        <i class="fab fa-google-drive" aria-hidden="true"></i>
+                    </div>
+                </a>
+                <!-- Twitter Button -->
+                <a href="http://twitter.com/utsav1o1" target="_blank" class="social-margin">
+                    <div class="social-icon twitter">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </div> 
+                </a>
+            </div>
+        </div>
+        <main id="PAGES_CONTAINER" class="PAGES_CONTAINER" tabindex="-1" data-main-content="true">
+            <div class="resume-container">
+                <div class="resume-header">
+                    <h1 class="resume-title animate__animated animate__fadeInUp">Utsav Karki</h1>
+                    <p class="resume-subtitle">Laravel Developer | PHP Backend Developer | Full-Stack Developer</p>
+                </div>
 
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@700&family=Fira+Sans:wght@400;500;700&family=Satisfy&family=Sriracha&family=Kaushan+Script&display=swap" />
-        <div style="margin-bottom: 40px"></div>
-        <h2>Utsav Karki</h2>
-        <h1>
-          <span>R</span>
-          <span>E</span>
-          <span>S</span>
-          <span>U</span>
-          <span>M</span>
-          <span>E</span>
-        </h1>
-      </div>
+                <!-- Contact -->
+                <!-- <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-address-card"></i> Contact</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <p><i class="fas fa-phone-alt"></i> +977 9869602478</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Pulchowk, Lalitpur</p>
+                            <p><i class="fas fa-envelope"></i> utsavkarki244@gmail.com</p>
+                            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/utsav1o1" class="resume-link" target="_blank">linkedin.com/in/utsav1o1 <i class="fas fa-arrow-right"></i></a></p>
+                            <p><i class="fas fa-globe"></i> <a href="https://www.utsavkarki.com" class="resume-link" target="_blank">www.utsavkarki.com <i class="fas fa-arrow-right"></i></a></p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Objective -->
+                <!-- <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-bullseye"></i> Objective</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <p>Looking for a job in your organization to leverage my skills in full-stack development, machine learning, and web technologies to contribute to innovative projects.</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Education -->
+                <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <h3>Bachelor of Computer Science, Vedas College</h3>
+                            <p>2019 - 2023</p>
+                            <p>Percentage: 76.45%</p>
+                            <p>Program: Computer Science and Information Technology</p>
+                            <p>Academic Achievement: College Topper in CS Faculty</p>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Intermediate in Computer Science, Xavier International College</h3>
+                            <p>2018 - 2020</p>
+                            <p>GPA: 3.23/4.0</p>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Secondary Education, Smriti English Boarding School</h3>
+                            <p>2011 - 2018</p>
+                            <p>GPA: 3.30/4.0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-tools"></i> Technical Skills</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <h3>Programming Languages</h3>
+                            <p>Python, PHP, JavaScript, Node.js, SQL</p>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Machine Learning</h3>
+                            <p>TensorFlow, Scikit-learn, CNN Architectures</p>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Web Technologies</h3>
+                            <p>HTML, CSS, Laravel, Livewire, Express.js, MySQL</p>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Tools and Platforms</h3>
+                            <p>AWS, Docker, DigitalOcean, GitHub, Git Bash</p>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Databases</h3>
+                            <p>MySQL, MongoDB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <h3>Dog Breed Classification using Deep Learning</h3>
+                            <ul>
+                                <li>Designed and implemented a CNN-based system for dog breed classification</li>
+                                <li>Achieved 95% accuracy on a large dataset, improving classification speed by 20%</li>
+                                <li>Won Best Machine Learning Project Award at the AWS Scholar Program</li>
+                            </ul>
+                        </div>
+                        <div class="resume-card">
+                            <h3>HealthDocx Unified Health Records App</h3>
+                            <ul>
+                                <li>Built intuitive dashboard for seamless health record management by hospital and health issue</li>
+                                <li>Integrated Gemini AI for smart document analysis, generating insightful health summaries</li>
+                                <li>Designed secure, role-based authentication system to safeguard user data</li>
+                                <li>Automated file categorization to efficiently organize medical records</li>
+                            </ul>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Loyalty Barter System</h3>
+                            <ul>
+                                <li>Developed a location-based filtering system using PHP and MySQL</li>
+                                <li>Implemented an ID3-based classification system for deal identification</li>
+                                <li>Integrated blockchain technology for transaction transparency, enhancing user trust</li>
+                            </ul>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Instagram TikTok Auto-mention Bot</h3>
+                            <ul>
+                                <li>Created a Python script for automated user mentions on social media platforms</li>
+                                <li>Increased engagement utilizing the script</li>
+                                <li>Automated over 1,000 mentions in live sessions, demonstrating scalability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Experience -->
+                <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <h3>Teaching Web Development, Vedas College</h3>
+                            <p>Jawlakhel, Lalitpur | Dec 2024 - May 2025</p>
+                            <ul>
+                                <li>Provided training in web development to first-semester bachelor’s students</li>
+                                <li>Taught Git, HTML, CSS, JavaScript, and Python</li>
+                            </ul>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Software Developer, Dasraa Tech</h3>
+                            <p>Gwarko, Lalitpur | Sep 2023 - May 2024</p>
+                            <ul>
+                                <li>Developed a property management system using Laravel and MySQL</li>
+                                <li>Led a database migration project, improving application performance by 25%</li>
+                                <li>Developed a robust email notification system with cron jobs and API integrations</li>
+                            </ul>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Software Development Intern, Lele Ventures</h3>
+                            <p>Jawlakhel, Lalitpur | Apr 2023 - Aug 2023</p>
+                            <ul>
+                                <li>Developed an interactive finance-based web application using Laravel and Livewire</li>
+                                <li>Integrated real-time data processing to enhance user experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Freelancing -->
+                <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-laptop-code"></i> Freelancing</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <h3>Freelance Developer, PeoplePerHour</h3>
+                            <p>Offering expertise in Laravel, PHP, WordPress, JavaScript, and more.</p>
+                            <p><a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" class="resume-link" target="_blank">View My Profile <i class="fas fa-arrow-right"></i></a></p>
+                            <p><a href="https://www.peopleperhour.com/site/register?rfrd=7855213.5" class="resume-link" target="_blank">Invite a Client <i class="fas fa-arrow-right"></i></a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Achievements & Awards -->
+                <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-trophy"></i> Academic Achievements & Awards</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <ul>
+                                <li>College Topper in CS Faculty at Bachelor Level, Vedas College</li>
+                                <li>Ranked 152 out of 2500 in the 2022 AWS Scholarship for Machine Learning</li>
+                                <li>Top 10 Finalist in the 2022 Idea College Hunt (out of 140 participants)</li>
+                                <li>Best Machine Learning Project Award, AWS Scholar Program</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leadership & Extracurricular Activities -->
+                <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-users"></i> Leadership & Extracurricular Activities</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <h3>President, Vedas Hashtag Community (ITSN)</h3>
+                            <p>2023</p>
+                            <ul>
+                                <li>Led the adoption of a new constitution to enhance student networking</li>
+                                <li>Organized workshops and seminars on emerging technologies</li>
+                            </ul>
+                        </div>
+                        <div class="resume-card">
+                            <h3>College Representative, Vedas College</h3>
+                            <p>2022</p>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Operations Manager, Australian Pathak</h3>
+                        </div>
+                        <div class="resume-card">
+                            <h3>Technical Blogger & YouTuber</h3>
+                            <p>Active creator of educational content on computer science topics</p>
+                            <p><a href="https://www.youtube.com/@RandomUtsav" class="resume-link" target="_blank">View YouTube Channel <i class="fas fa-arrow-right"></i></a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- References -->
+                <!-- <div class="resume-section animate__animated">
+                    <h2 class="resume-section-title"><i class="fas fa-address-book"></i> References</h2>
+                    <div class="resume-grid">
+                        <div class="resume-card">
+                            <p>Available upon request.</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </main>
+        <!-- Go to Top Button -->
+        <section class="custom-resume-btn">
+            <button onclick="topFunction()" id="myBtn" title="Go to Top">Go to Top</button>
+        </section>
+        <div id="footerPlaceholder"></div>
     </div>
-    <div class="menu">
-      <div class="course">
-        <h3>Starters</h3>
-        <div class="item">
-          <h4>Vedas College</h4>
-          <p>Bachelors Degree.</p>
-          <p>Computer Science.</p>
-        </div>
-        <div class="item">
-          <h4>First Jobs</h4>
-          <p>ProfitX Web Finance Backend Developer.</p>
-        </div>
-      </div>
-      <div class="course">
-        <h3>Experience</h3>
-        <div class="item">
-          <h4>Profit X</h4>
-          <p>2023/05 - 2023/11</p>
-          <p>Platform, Web.</p>
-          <p>PHP, Laravel, Livewire.</p>
-        </div>
-        <div class="item">
-          <h4>Dasraa</h4>
-          <p>2023/11 - Today</p>
-          <p>Real State, Travel Agency.</p>
-          <p>Javascript, Vue, Laravel, .</p>
-        </div>
-      </div>
-      <div class="course">
-        <h3>Skills</h3>
-        <div class="item">
-          <h4>Languages</h4>
-          <p>HTML/CSS, Javascript, Laravel, Livewire, Python, Vue, whatever.</p>
-        </div>
-        <div class="item">
-          <h4>Quality</h4>
-          <p>Crafts with loving care.</p>
-          <p>Thoughtfully designed.</p>
-          <p>Thoroughly tested.</p>
-        </div>
-      </div>
-    </div>
-    <!--Btn To Top-->
-    <section
-      class="custom-resume-btn"
-      style="display: flex; justify-content: center; width: 100%">
-      <div class="text-center mt-5 custom-resume-btn" style="display: flex">
-        <button
-          class="mb-5 custom-resume-btn"
-          onclick="topFunction()"
-          id="myBtn"
-          title="Go to top">
-          Go To Top
-        </button>
-      </div>
-      <script>
-        // Get the button
+
+    <script>
+        // Function to include header
+        function includeHTML() {
+            fetch("header.html")
+                .then((response) => response.text())
+                .then((html) => {
+                    document.getElementById("headerPlaceholder").innerHTML = html;
+                })
+                .catch((error) => console.error("Error fetching header.html:", error));
+            /*fetch("footer.html")
+                .then((response) => response.text())
+                .then((html) => {
+                    document.getElementById("footerPlaceholder").innerHTML = html;
+                })
+                .catch((error) => console.error("Error fetching footer.html:", error));*/
+        }
+
+        // Call the includeHTML function
+        includeHTML();
+
+        // Go to Top Button Functionality
         let mybutton = document.getElementById("myBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
-          scrollFunction();
+            scrollFunction();
         };
 
         function scrollFunction() {
-          if (
-            document.body.scrollTop > 20 ||
-            document.documentElement.scrollTop > 20
-          ) {
-            mybutton.style.margin = "auto";
-          }
+            if (
+                document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20
+            ) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
         }
 
-        // When the user clicks on the button, scroll to the top of the document
         function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
-      </script>
-    </section>
-    <!--Btn to Top End-->
 
-    <!-- <div id="footerPlaceholder"></div> -->
+        // Animate resume cards on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__fadeInUp');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
 
-    <!-- Add Bootstrap and jQuery JS scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      // Function to handle scrolling to sections smoothly
-      function scrollToSection(sectionId) {
-        document.querySelector(sectionId).scrollIntoView({
-          behavior: "smooth",
+            document.querySelectorAll('.resume-section').forEach(section => {
+                observer.observe(section);
+            });
         });
-      }
-
-      function includeHTML() {
-        fetch("header.html")
-          .then((response) => response.text())
-          .then((html) => {
-            // Inject the content into the div with id "headerPlaceholder"
-            document.getElementById("headerPlaceholder").innerHTML = html;
-          })
-          .catch((error) =>
-            console.error("Error fetching included.html:", error)
-          );
-      }
-      includeHTML();
     </script>
-  </body>
+</body>
 </html>

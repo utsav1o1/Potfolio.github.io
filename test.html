@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Utsav Karki - Laravel, PHP, AI/ML, and Full-Stack Developer Portfolio">
+  <meta name="keywords" content="Utsav Karki, Laravel, PHP, Full-Stack Developer, AI/ML, Web Development">
+  <meta name="author" content="Utsav Karki">
+  <title>Utsav Karki | Developer Portfolio</title>
+  <link rel="stylesheet" href="css/newStyle.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap">
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+</head>
+<body>
+  <!-- Floating Resume Button -->
+  <a href="resume.pdf" download class="floating-resume-btn" aria-label="Download Resume">
+    <span class="iconify" data-icon="mdi:download"></span> Resume
+  </a>
+
+  <!-- Header Section -->
+  <header class="header-content" role="banner">
+    <div id="particle-background"></div>
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <a href="#home" class="logo" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+          <span class="logo-text">Utsav Karki</span>
+          <span class="logo-subtitle">Full-Stack Developer</span>
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar-nav" role="navigation">
+        <ul>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="#github-repos" class="nav-link">GitHub</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-item social-icons">
+            <a href="https://facebook.com" class="social-icon facebook" aria-label="Facebook"><span class="iconify" data-icon="mdi:facebook"></span></a>
+            <a href="https://twitter.com" class="social-icon twitter" aria-label="Twitter"><span class="iconify" data-icon="mdi:twitter"></span></a>
+            <a href="https://linkedin.com" class="social-icon linkedin" aria-label="LinkedIn"><span class="iconify" data-icon="mdi:linkedin"></span></a>
+            <a href="https://github.com" class="social-icon github" aria-label="GitHub"><span class="iconify" data-icon="mdi:github"></span></a>
+          </li>
+          <li class="nav-item">
+            <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+              <span class="iconify" data-icon="mdi:theme-light-dark"></span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-view">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <canvas id="matrix-canvas"></canvas>
+      <div class="hero-content">
+        <div class="floating-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel icon" class="float-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP icon" class="float-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" class="float-icon">
+        </div>
+        <img src="avatar.png" alt="Utsav Karki avatar" class="hero-avatar" loading="lazy">
+        <h1 class="anim-typewriter">Hi, I’m Utsav Karki 👋</h1>
+        <p class="hero-subtitle" id="typing-roles"></p>
+        <div class="hero-buttons">
+          <a href="#projects" class="custom-btn emerald">View Projects</a>
+          <a href="resume.pdf" download class="custom-btn slate">Download Resume</a>
+        </div>
+        <div class="scroll-indicator">↓ Scroll</div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="main-content">
+      <div class="title">
+        <span>S K I L L S</span>
+      </div>
+      <div class="skill-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="tools">Tools/DevOps</button>
+      </div>
+      <div class="language-roller">
+        <div class="roller-track">
+          <span>Laravel</span>
+          <span>PHP</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>Vue.js</span>
+          <span>Livewire</span>
+          <span>Node.js</span>
+          <span>TensorFlow</span>
+          <span>Laravel</span>
+          <span>PHP</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>Vue.js</span>
+          <span>Livewire</span>
+          <span>Node.js</span>
+          <span>TensorFlow</span>
+        </div>
+      </div>
+      <div class="tech-tree">
+        <div class="tree-branch" data-category="backend">
+          <h3>Backend</h3>
+          <div class="skill-node" data-skill="laravel" data-proficiency="90" aria-expanded="false" aria-controls="laravel-details">
+            <svg class="skill-logo" width="100" height="100">
+              <circle class="progress-ring__circle" stroke="#3A506B" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <circle class="progress-ring__progress" stroke="#6BCB77" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" x="20" y="20" width="60" height="60" alt="Laravel logo"/>
+            </svg>
+            <span>Laravel</span>
+            <div class="skill-details" id="laravel-details">
+              <p>4 years, 10+ projects, built HealthDocX backend</p>
+            </div>
+          </div>
+          <div class="skill-node" data-skill="php" data-proficiency="85" aria-expanded="false" aria-controls="php-details">
+            <svg class="skill-logo" width="100" height="100">
+              <circle class="progress-ring__circle" stroke="#3A506B" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <circle class="progress-ring__progress" stroke="#6BCB77" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" x="20" y="20" width="60" height="60" alt="PHP logo"/>
+            </svg>
+            <span>PHP</span>
+            <div class="skill-details" id="php-details">
+              <p>5 years, custom APIs, e-commerce platforms</p>
+            </div>
+          </div>
+        </div>
+        <div class="tree-branch" data-category="frontend">
+          <h3>Frontend</h3>
+          <div class="skill-node" data-skill="javascript" data-proficiency="80" aria-expanded="false" aria-controls="javascript-details">
+            <svg class="skill-logo" width="100" height="100">
+              <circle class="progress-ring__circle" stroke="#3A506B" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <circle class="progress-ring__progress" stroke="#6BCB77" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" x="20" y="20" width="60" height="60" alt="JavaScript logo"/>
+            </svg>
+            <span>JavaScript</span>
+            <div class="skill-details" id="javascript-details">
+              <p>Dynamic SPAs, Vue.js, React</p>
+            </div>
+          </div>
+          <div class="skill-node" data-skill="vue" data-proficiency="75" aria-expanded="false" aria-controls="vue-details">
+            <svg class="skill-logo" width="100" height="100">
+              <circle class="progress-ring__circle" stroke="#3A506B" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <circle class="progress-ring__progress" stroke="#6BCB77" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" x="20" y="20" width="60" height="60" alt="Vue.js logo"/>
+            </svg>
+            <span>Vue.js</span>
+            <div class="skill-details" id="vue-details">
+              <p>3 years, interactive UIs, component-based</p>
+            </div>
+          </div>
+        </div>
+        <div class="tree-branch" data-category="tools">
+          <h3>Tools/DevOps</h3>
+          <div class="skill-node" data-skill="docker" data-proficiency="70" aria-expanded="false" aria-controls="docker-details">
+            <svg class="skill-logo" width="100" height="100">
+              <circle class="progress-ring__circle" stroke="#3A506B" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <circle class="progress-ring__progress" stroke="#6BCB77" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" x="20" y="20" width="60" height="60" alt="Docker logo"/>
+            </svg>
+            <span>Docker</span>
+            <div class="skill-details" id="docker-details">
+              <p>Containerized apps, CI/CD pipelines</p>
+            </div>
+          </div>
+          <div class="skill-node" data-skill="aws" data-proficiency="65" aria-expanded="false" aria-controls="aws-details">
+            <svg class="skill-logo" width="100" height="100">
+              <circle class="progress-ring__circle" stroke="#3A506B" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <circle class="progress-ring__progress" stroke="#6BCB77" stroke-width="4" fill="transparent" r="46" cx="50" cy="50"/>
+              <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" x="20" y="20" width="60" height="60" alt="AWS logo"/>
+            </svg>
+            <span>AWS</span>
+            <div class="skill-details" id="aws-details">
+              <p>Cloud deployment, EC2, S3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="main-content">
+      <div class="title">
+        <span>P R O J E C T S</span>
+      </div>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="ai">AI/ML</button>
+        <button class="filter-btn" data-filter="health">Health</button>
+      </div>
+      <div class="project-list">
+        <div class="project-item" data-category="web" data-tilt data-tilt-max="5" data-tilt-speed="400">
+          <img src="project1.jpg" alt="HealthDocX project" class="project-image" loading="lazy">
+          <h3>HealthDocX</h3>
+          <p>AI-driven healthcare platform with Laravel backend.</p>
+          <span class="project-badge">Laravel</span>
+          <a href="https://healthdocx.com" class="project-link">View Project</a>
+        </div>
+        <div class="project-item" data-category="ai" data-tilt data-tilt-max="5" data-tilt-speed="400">
+          <img src="project2.jpg" alt="AI Chatbot project" class="project-image" loading="lazy">
+          <h3>AI Chatbot</h3>
+          <p>Custom chatbot using TensorFlow and Node.js.</p>
+          <span class="project-badge">TensorFlow</span>
+          <a href="https://aichatbot.com" class="project-link">View Project</a>
+        </div>
+        <div class="project-item" data-category="health" data-tilt data-tilt-max="5" data-tilt-speed="400">
+          <img src="project3.jpg" alt="Telemedicine App project" class="project-image" loading="lazy">
+          <h3>Telemedicine App</h3>
+          <p>Vue.js-based app for remote consultations.</p>
+          <span class="project-badge">Vue.js</span>
+          <a href="https://telemedicineapp.com" class="project-link">View Project</a>
+        </div>
+        <div class="project-item show-all" data-tilt data-tilt-max="5" data-tilt-speed="400">
+          <div class="show-all-content">
+            <h3>Explore More</h3>
+            <p>Discover all my projects on GitHub.</p>
+            <a href="https://github.com/utsavkarki" class="custom-btn emerald">Show More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="main-content">
+      <div class="title">
+        <span>B L O G</span>
+      </div>
+      <div id="blog-list" class="blog-grid">
+        <!-- Blog posts will be populated dynamically via JavaScript -->
+      </div>
+    </section>
+
+    <!-- GitHub Repositories Section -->
+    <section id="github-repos" class="main-content">
+      <div class="title">
+        <span>G I T H U B   R E P O S I T O R I E S</span>
+      </div>
+      <div id="repo-list" class="repo-grid">
+        <!-- Repos will be populated dynamically via JavaScript -->
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="main-content">
+      <div class="title">
+        <span>A B O U T</span>
+      </div>
+      <div class="about-content">
+        <div class="about-image" data-tilt data-tilt-max="7" data-tilt-speed="400">
+          <img src="about-avatar.png" alt="Utsav Karki" loading="lazy">
+        </div>
+        <div class="about-timeline">
+          <div class="timeline-item">
+            <span class="timeline-icon iconify" data-icon="mdi:school"></span>
+            <div class="timeline-content">
+              <h4>B.Sc. in Computer Science</h4>
+              <p>Graduated with honors from XYZ University, 2018.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-icon iconify" data-icon="mdi:briefcase"></span>
+            <div class="timeline-content">
+              <h4>Laravel Developer at TechCorp</h4>
+              <p>Led backend development for HealthDocX, 2019-2021.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-icon iconify" data-icon="mdi:code-tags"></span>
+            <div class="timeline-content">
+              <h4>Freelance Full-Stack Developer</h4>
+              <p>Built 10+ projects, including AI and web apps, 2021-Present.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="main-content">
+      <div class="title">
+        <span>T E S T I M O N I A L S</span>
+      </div>
+      <div class="testimonials-carousel">
+        <div id="testimonial-particles"></div>
+        <div class="carousel-track">
+          <div class="testimonial-card" data-tilt data-tilt-max="5" data-tilt-speed="400">
+            <span class="quote-icon iconify" data-icon="mdi:format-quote-open"></span>
+            <img src="client1.png" alt="Client 1 avatar" class="client-avatar" loading="lazy">
+            <p>"Utsav delivered an exceptional Laravel backend for our healthcare platform. Highly recommend!"</p>
+            <h4>John Doe, CEO of HealthDocX</h4>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="testimonial-card" data-tilt data-tilt-max="5" data-tilt-speed="400">
+            <span class="quote-icon iconify" data-icon="mdi:format-quote-open"></span>
+            <img src="client2.png" alt="Client 2 avatar" class="client-avatar" loading="lazy">
+            <p>"His AI chatbot transformed our customer support. Professional and timely!"</p>
+            <h4>Jane Smith, CTO of AI Solutions</h4>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="testimonial-card" data-tilt data-tilt-max="5" data-tilt-speed="400">
+            <span class="quote-icon iconify" data-icon="mdi:format-quote-open"></span>
+            <img src="client3.png" alt="Client 3 avatar" class="client-avatar" loading="lazy">
+            <p>"Utsav's Vue.js expertise made our telemedicine app user-friendly and robust."</p>
+            <h4>Mike Johnson, Product Manager</h4>
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+        <button class="carousel-control prev" aria-label="Previous testimonial">❮</button>
+        <button class="carousel-control next" aria-label="Next testimonial">❯</button>
+        <div class="carousel-dots">
+          <span class="dot" data-index="0" tabindex="0"></span>
+          <span class="dot" data-index="1" tabindex="0"></span>
+          <span class="dot" data-index="2" tabindex="0"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="main-content">
+      <div class="title">
+        <span>C O N T A C T</span>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div id="contact-particles"></div>
+          <div class="contact-card">
+            <h4>Contact Info</h4>
+            <p><span class="contact-icon iconify" data-icon="mdi:email"></span> utsav@techdrophub.com</p>
+            <p><span class="contact-icon iconify" data-icon="mdi:phone"></span> +977-123-456-7890</p>
+            <p><span class="contact-icon iconify" data-icon="mdi:map-marker"></span> Kathmandu, Nepal</p>
+            <div class="contact-social">
+              <a href="https://facebook.com" aria-label="Facebook"><span class="iconify" data-icon="mdi:facebook"></span></a>
+              <a href="https://twitter.com" aria-label="Twitter"><span class="iconify" data-icon="mdi:twitter"></span></a>
+              <a href="https://linkedin.com" aria-label="LinkedIn"><span class="iconify" data-icon="mdi:linkedin"></span></a>
+              <a href="https://github.com" aria-label="GitHub"><span class="iconify" data-icon="mdi:github"></span></a>
+            </div>
+            <div class="contact-buttons">
+              <a href="https://peopleperhour.com" class="custom-btn emerald" target="_blank">Hire Me on PeoplePerHour</a>
+              <a href="https://calendly.com" class="custom-btn slate" target="_blank">Schedule a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <div class="contact-card">
+            <h4>Send a Message</h4>
+            <form id="contact-form">
+              <div class="form-group name-group">
+                <div class="name-field">
+                  <input type="text" id="first-name" placeholder=" " required>
+                  <label for="first-name">First Name</label>
+                  <div class="error-message" id="first-name-error"></div>
+                </div>
+                <div class="name-field">
+                  <input type="text" id="last-name" placeholder=" " required>
+                  <label for="last-name">Last Name</label>
+                  <div class="error-message" id="last-name-error"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" id="subject" placeholder=" " required>
+                <label for="subject">Subject</label>
+                <div class="error-message" id="subject-error"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" placeholder=" " required>
+                <label for="email">Email</label>
+                <div class="error-message" id="email-error"></div>
+              </div>
+              <div class="form-group">
+                <textarea id="message" placeholder=" " required></textarea>
+                <label for="message">Message</label>
+                <div class="error-message" id="message-error"></div>
+              </div>
+              <button type="submit" class="custom-btn emerald">Send Message</button>
+              <div class="form-success" id="form-success"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+      <p>© 2025 Utsav Karki. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="js/newMain.js"></script>
+</body>
+</html>

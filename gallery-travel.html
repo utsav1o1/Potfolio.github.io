@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Gallery — Utsav Karki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1A3C34;
+      --accent: #E07B39;
+      --bg: #F7F5F0;
+      --bg2: #EDEAE3;
+      --card: #FFFFFF;
+      --text: #1C1917;
+      --text2: #57534E;
+      --text3: #A8A29E;
+      --border: #D6D3CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      background-image: linear-gradient(rgba(26, 60, 52, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 60, 52, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    h1, h2, h3 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-label { display: inline-block; font-size: 0.75rem; color: var(--primary); background: rgba(14, 66, 51, 0.08); padding: 6px 14px; border-radius: 6px; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* Nav styles */
+    .nav {
+      position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(24px);
+      border: 1px solid rgba(214, 211, 204, 0.8); border-radius: 99px;
+      padding: 6px 8px; display: flex; align-items: center; gap: 2px; z-index: 1000;
+      box-shadow: 0 8px 32px rgba(28, 25, 23, 0.12);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; text-decoration: none; border-right: 1px solid var(--border); margin-right: 6px; }
+    .nav-brand-mark { width: 32px; height: 32px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: white; }
+    .nav-brand-text { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .nav-brand-text span { color: var(--accent); font-weight: 700; }
+    .nav-link { display: flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 99px; font-size: 0.82rem; font-weight: 500; color: var(--text2); text-decoration: none; transition: all 0.18s; }
+    .nav-link:hover { background: var(--bg2); color: var(--primary); }
+    .nav-link.active { background: var(--primary); color: #fff; }
+    .nav-link--cta { background: var(--accent); color: #fff !important; padding: 9px 18px; margin-left: 4px; font-weight: 600; }
+    
+    /* Gallery Grid */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; padding: 40px 0 100px; }
+    .gallery-item { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; background: var(--bg2); transition: transform 0.3s, box-shadow 0.3s; }
+    .gallery-item:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent); opacity: 0; transition: opacity 0.3s; }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item-info { position: absolute; bottom: 16px; left: 16px; right: 16px; z-index: 1; color: white; }
+    .gallery-item-title { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+    .gallery-item-location { font-size: 0.75rem; opacity: 0.8; }
+    
+    /* Footer styles */
+    .footer { background: var(--card); border-top: 1px solid var(--border); padding: 60px 0 30px; margin-top: 60px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 16px; }
+    .footer p { color: var(--text2); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 40px; height: 40px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text2); transition: all 0.2s; }
+    .footer-social a:hover { background: var(--primary); color: white; }
+    .footer h4 { font-size: 1rem; margin-bottom: 20px; }
+    .footer ul { list-style: none; }
+    .footer li { margin-bottom: 12px; }
+    .footer a { color: var(--text2); font-size: 0.9rem; text-decoration: none; }
+    .footer a:hover { color: var(--primary); }
+    .footer-bottom { padding-top: 30px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { color: var(--text2); font-size: 0.85rem; margin-bottom: 0; }
+    .footer-bottom a { color: var(--accent); }
+    
+    @media (max-width: 768px) {
+      .nav { bottom: 18px; top: auto; }
+      .nav-brand-text { display: none; }
+      .nav-link span { display: none; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Dock -->
+  <nav class="nav" id="main-nav">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-mark">UK</div>
+      <span class="nav-brand-text">utsav<span>1o1</span></span>
+    </a>
+    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
+    <a href="projects.html" class="nav-link"><i class="fas fa-briefcase"></i> <span>Projects</span></a>
+    <a href="gallery.html" class="nav-link active"><i class="fas fa-images"></i> <span>Gallery</span></a>
+    <a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> <span>Blog</span></a>
+    <a href="index.html#contact" class="nav-link nav-link--cta"><i class="fas fa-paper-plane"></i> <span>Hire Me</span></a>
+  </nav>
+
+  <div style="padding: 140px 0 20px;">
+    <div class="container" style="text-align: center;">
+      <span class="section-label">Gallery</span>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 16px;">Travel & Lifestyle</h1>
+      <p style="font-size: 1.1rem; color: var(--text2); max-width: 600px; margin: 0 auto;">Photos from travels and moments around Nepal and beyond</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=301" alt="Himalayan Mountains" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">Himalayan Views</div><div class="gallery-item-location">Nepal</div></div></div>
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=302" alt="Ancient Temples" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">Ancient Temples</div><div class="gallery-item-location">Kathmandu, Nepal</div></div></div>
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=303" alt="Mountain Sunrise" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">Mountain Sunrise</div><div class="gallery-item-location">Nagarkot, Nepal</div></div></div>
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=304" alt="City Skyline" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">City Skyline</div><div class="gallery-item-location">Kathmandu</div></div></div>
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=305" alt="Rice Terraces" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">Rice Terraces</div><div class="gallery-item-location">Pokhara, Nepal</div></div></div>
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=306" alt="Lake Views" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">Phewa Lake</div><div class="gallery-item-location">Pokhara, Nepal</div></div></div>
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=307" alt="Wildlife" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">Wildlife Encounter</div><div class="gallery-item-location">Chitwan, Nepal</div></div></div>
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=308" alt="Local Culture" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">Local Culture</div><div class="gallery-item-location">Itahari, Nepal</div></div></div>
+      <div class="gallery-item"><img src="https://picsum.photos/600/450?random=309" alt="Adventure" loading="lazy"><div class="gallery-item-info"><div class="gallery-item-title">Paragliding</div><div class="gallery-item-location">Pokhara, Nepal</div></div></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Utsav Karki</h3>
+          <p>Full-Stack Developer & VPS Specialist. Specializing in Laravel, NopCommerce, WordPress, and server management.</p>
+          <div class="footer-social">
+            <a href="https://github.com/utsav1o1" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank"><i class="fas fa-hourglass-half"></i></a>
+            <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">NopCommerce</a></li>
+            <li><a href="index.html#services">VPS Management</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="https://seohealthcheck.co.uk" target="_blank">SEO Health Check</a></li>
+            <li><a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank">Hire on PPH</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Utsav Karki · Full-Stack Developer & VPS Specialist · Nepal</p>
+        <p>Serving UK, Australian & global clients via <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank">PeoplePerHour</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
