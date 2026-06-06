@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Utsav Karki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1A3C34;
+      --accent: #E07B39;
+      --bg: #F7F5F0;
+      --bg2: #EDEAE3;
+      --card: #FFFFFF;
+      --text: #1C1917;
+      --text2: #57534E;
+      --text3: #A8A29E;
+      --border: #D6D3CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      background-image: linear-gradient(rgba(26, 60, 52, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 60, 52, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    h1, h2, h3 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section-label { display: inline-block; font-size: 0.75rem; color: var(--primary); background: rgba(14, 66, 51, 0.08); padding: 6px 14px; border-radius: 6px; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .section-title { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; }
+    
+    /* Nav styles */
+    .nav {
+      position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(24px);
+      border: 1px solid rgba(214, 211, 204, 0.8); border-radius: 99px;
+      padding: 6px 8px; display: flex; align-items: center; gap: 2px; z-index: 1000;
+      box-shadow: 0 8px 32px rgba(28, 25, 23, 0.12);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; text-decoration: none; border-right: 1px solid var(--border); margin-right: 6px; }
+    .nav-brand-mark { width: 32px; height: 32px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: white; }
+    .nav-brand-text { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .nav-brand-text span { color: var(--accent); font-weight: 700; }
+    .nav-link { display: flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 99px; font-size: 0.82rem; font-weight: 500; color: var(--text2); text-decoration: none; transition: all 0.18s; }
+    .nav-link:hover { background: var(--bg2); color: var(--primary); }
+    .nav-link.active { background: var(--primary); color: #fff; }
+    .nav-link--cta { background: var(--accent); color: #fff !important; padding: 9px 18px; margin-left: 4px; font-weight: 600; }
+    
+    /* Gallery Grid */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .gallery-item { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; background: var(--bg2); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); opacity: 0; transition: opacity 0.3s; }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item-title { position: absolute; bottom: 16px; left: 16px; right: 16px; color: white; font-weight: 600; font-size: 0.95rem; z-index: 1; opacity: 0; transform: translateY(10px); transition: all 0.3s; }
+    .gallery-item:hover .gallery-item-title { opacity: 1; transform: translateY(0); }
+    .gallery-link { display: block; margin-top: 24px; }
+    .gallery-link span { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .gallery-link span:hover { background: var(--primary); color: white; border-color: var(--primary); }
+    
+    /* Lightbox */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 10000; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .lightbox.active { display: flex; }
+    .lightbox-content img { max-width: 90vw; max-height: 85vh; border-radius: 12px; }
+    .lightbox-close, .lightbox-nav { position: absolute; width: 50px; height: 50px; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+    .lightbox-close { top: 20px; right: 20px; }
+    .lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+    .lightbox-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; font-size: 0.9rem; }
+    
+    /* Footer styles */
+    .footer { background: var(--card); border-top: 1px solid var(--border); padding: 60px 0 30px; margin-top: 60px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 16px; }
+    .footer p { color: var(--text2); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 40px; height: 40px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text2); transition: all 0.2s; }
+    .footer-social a:hover { background: var(--primary); color: white; }
+    .footer h4 { font-size: 1rem; margin-bottom: 20px; }
+    .footer ul { list-style: none; }
+    .footer li { margin-bottom: 12px; }
+    .footer a { color: var(--text2); font-size: 0.9rem; text-decoration: none; }
+    .footer a:hover { color: var(--primary); }
+    .footer-bottom { padding-top: 30px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { color: var(--text2); font-size: 0.85rem; margin-bottom: 0; }
+    .footer-bottom a { color: var(--accent); }
+    
+    @media (max-width: 768px) {
+      .nav { bottom: 18px; top: auto; }
+      .nav-brand-text { display: none; }
+      .nav-link span { display: none; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Dock -->
+  <nav class="nav" id="main-nav">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-mark">UK</div>
+      <span class="nav-brand-text">utsav<span>1o1</span></span>
+    </a>
+    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
+    <a href="projects.html" class="nav-link"><i class="fas fa-briefcase"></i> <span>Projects</span></a>
+    <a href="gallery.html" class="nav-link active"><i class="fas fa-images"></i> <span>Gallery</span></a>
+    <a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> <span>Blog</span></a>
+    <a href="index.html#contact" class="nav-link nav-link--cta"><i class="fas fa-paper-plane"></i> <span>Hire Me</span></a>
+  </nav>
+
+  <div style="padding: 140px 0 60px;">
+    <div class="container" style="text-align: center;">
+      <span class="section-label">Portfolio</span>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 16px;">Gallery</h1>
+      <p style="font-size: 1.1rem; color: var(--text2); max-width: 600px; margin: 0 auto;">Screenshots, visuals, and moments from my work and travels</p>
+    </div>
+  </div>
+
+  <!-- Videos Section -->
+  <section class="section" style="padding-top: 40px;">
+    <div class="container">
+      <h2 style="font-size: 1.5rem; margin-bottom: 24px;">Video Projects</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-src="img/tiktok.jpg"><img src="img/tiktok.jpg" alt="TikTok Project" loading="lazy"><span class="gallery-item-title">TikTok Integration</span></div>
+        <div class="gallery-item" data-src="img/whatsapp.png"><img src="img/whatsapp.png" alt="WhatsApp Bot" loading="lazy"><span class="gallery-item-title">WhatsApp Bot</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Section -->
+  <section class="section">
+    <div class="container">
+      <h2 style="font-size: 1.5rem; margin-bottom: 24px;">Tech & Projects</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-src="img/projects_img/willywonka.png"><img src="img/projects_img/willywonka.png" alt="Willy Wonka VIP" loading="lazy"><span class="gallery-item-title">Willy Wonka VIP</span></div>
+        <div class="gallery-item" data-src="img/projects_img/solware.png"><img src="img/projects_img/solware.png" alt="Solware UK" loading="lazy"><span class="gallery-item-title">Solware UK</span></div>
+        <div class="gallery-item" data-src="img/projects_img/ageuk.png"><img src="img/projects_img/ageuk.png" alt="Age UK" loading="lazy"><span class="gallery-item-title">Age UK</span></div>
+        <div class="gallery-item" data-src="img/projects_img/gshepherdanimalhealth.png"><img src="img/projects_img/gshepherdanimalhealth.png" alt="G Shepherd Animal Health" loading="lazy"><span class="gallery-item-title">G. Shepherd Animal Health</span></div>
+        <div class="gallery-item" data-src="img/projects_img/the-magnificent7.png"><img src="img/projects_img/the-magnificent7.png" alt="The Magnificent 7" loading="lazy"><span class="gallery-item-title">The Magnificent 7</span></div>
+        <div class="gallery-item" data-src="img/projects_img/globalnepaltreks.png"><img src="img/projects_img/globalnepaltreks.png" alt="Global Nepal Treks" loading="lazy"><span class="gallery-item-title">Global Nepal Treks</span></div>
+      </div>
+      <a href="gallery-projects.html" class="gallery-link"><span>View All Projects <i class="fas fa-arrow-right"></i></span></a>
+    </div>
+  </section>
+
+  <!-- Travel Section -->
+  <section class="section">
+    <div class="container">
+      <h2 style="font-size: 1.5rem; margin-bottom: 24px;">Travel & Lifestyle</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-src="https://picsum.photos/800/600?random=1"><img src="https://picsum.photos/400/300?random=1" alt="Mountain" loading="lazy"><span class="gallery-item-title">Himalayan Views</span></div>
+        <div class="gallery-item" data-src="https://picsum.photos/800/600?random=2"><img src="https://picsum.photos/400/300?random=2" alt="Temple" loading="lazy"><span class="gallery-item-title">Ancient Temples</span></div>
+        <div class="gallery-item" data-src="https://picsum.photos/800/600?random=3"><img src="https://picsum.photos/400/300?random=3" alt="Sunset" loading="lazy"><span class="gallery-item-title">Nepal Sunsets</span></div>
+      </div>
+      <a href="gallery-travel.html" class="gallery-link"><span>View All Travel Photos <i class="fas fa-arrow-right"></i></span></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Utsav Karki</h3>
+          <p>Full-Stack Developer & VPS Specialist. Specializing in Laravel, NopCommerce, WordPress, and server management.</p>
+          <div class="footer-social">
+            <a href="https://github.com/utsav1o1" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank"><i class="fas fa-hourglass-half"></i></a>
+            <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">NopCommerce</a></li>
+            <li><a href="index.html#services">VPS Management</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="https://seohealthcheck.co.uk" target="_blank">SEO Health Check</a></li>
+            <li><a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank">Hire on PPH</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Utsav Karki · Full-Stack Developer & VPS Specialist · Nepal</p>
+        <p>Serving UK, Australian & global clients via <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank">PeoplePerHour</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-content"><img src="" alt="Gallery Image" id="lightbox-img"></div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
+  <script>
+    let currentGallery = [];
+    let currentIndex = 0;
+    
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const src = item.dataset.src;
+        currentGallery = Array.from(document.querySelectorAll('.gallery-item')).map(i => i.dataset.src);
+        currentIndex = currentGallery.indexOf(src);
+        openLightbox(src);
+      });
+    });
+    
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      updateCounter();
+    }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
+    function navigateLightbox(dir) {
+      currentIndex = (currentIndex + dir + currentGallery.length) % currentGallery.length;
+      document.getElementById('lightbox-img').src = currentGallery[currentIndex];
+      updateCounter();
+    }
+    function updateCounter() { document.getElementById('lightbox-counter').textContent = `${currentIndex + 1} / ${currentGallery.length}`; }
+    
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+  </script>
+</body>
+
+</html>
