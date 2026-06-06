@@ -2271,18 +2271,18 @@
       <p class="section-subtitle">Currently available for new projects</p>
 
       <div class="contact-grid">
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xnqkjyrl" method="POST">
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" placeholder="Your name" required>
+            <input type="text" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label>Email Address</label>
-            <input type="email" placeholder="your@email.com" required>
+            <input type="email" name="email" placeholder="your@email.com" required>
           </div>
           <div class="form-group">
             <label>Project Type</label>
-            <select required>
+            <select name="project_type" required>
               <option value="">Select a service...</option>
               <option>Web Development</option>
               <option>WordPress / WooCommerce</option>
@@ -2294,7 +2294,7 @@
           </div>
           <div class="form-group">
             <label>Budget Range</label>
-            <select required>
+            <select name="budget" required>
               <option value="">Select budget...</option>
               <option>Under $500</option>
               <option>$500 – $1,000</option>
@@ -2304,7 +2304,7 @@
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea placeholder="Tell me about your project..." required></textarea>
+            <textarea name="message" placeholder="Tell me about your project..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message →</button>
         </form>
@@ -2315,7 +2315,7 @@
             <i class="fas fa-envelope"></i>
             <div>
               <h4>Email</h4>
-              <p>utsav@m65seo.com</p>
+              <p>utsavkarki244@gmail.com</p>
             </div>
           </div>
           <div class="contact-item">
@@ -2418,7 +2418,7 @@
       target="_blank" class="social-item" title="PeoplePerHour">
       <i class="fas fa-hourglass-half"></i>
     </a>
-    <a href="mailto:utsav@m65seo.com" class="social-item" title="Email Me">
+    <a href="mailto:utsavkarki244@gmail.com" class="social-item" title="Email Me">
       <i class="fas fa-envelope"></i>
     </a>
   </div>
@@ -2703,10 +2703,120 @@
 
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      alert('Thank you! Your message has been sent. I\'ll get back to you within 24 hours.');
-      this.reset();
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      btn.disabled = true;
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(function(response) {
+        if (response.ok) {
+          form.innerHTML = `
+            <div class="form-success">
+              <div class="form-success-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <h3>Message Sent!</h3>
+              <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+              <a href="mailto:utsavkarki244@gmail.com" class="form-success-link">
+                <i class="fas fa-envelope"></i> utsavkarki244@gmail.com
+              </a>
+            </div>
+          `;
+        } else {
+          alert('Something went wrong. Please try again or email me directly at utsavkarki244@gmail.com');
+        }
+      }).catch(function() {
+        alert('Something went wrong. Please try again or email me directly at utsavkarki244@gmail.com');
+      }).finally(function() {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
     });
   </script>
+  <style>
+    .form-success {
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeInUp 0.5s ease;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .form-success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: white;
+      box-shadow: 0 10px 40px rgba(34, 197, 94, 0.3);
+    }
+    
+    .form-success h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    
+    .form-success p {
+      color: var(--text2);
+      font-size: 1rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .form-success-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .form-success-link:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .form-success-link i {
+      color: var(--accent);
+    }
+    
+    .form-success-link:hover i {
+      color: white;
+    }
+  </style>
 </body>
 
 </html>
