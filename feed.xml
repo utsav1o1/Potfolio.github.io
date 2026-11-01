@@ -6,6 +6,14 @@
     <description>Web development, DevOps and freelancing notes by Utsav Karki.</description>
     <language>en-ca</language>
     <item>
+      <title>PHP2Shell: The Two Critical PHP Vulnerabilities of October 2026 and How to Fix Them</title>
+      <link>https://utsavkarki.com.np/blog/php2shell-critical-php-vulnerabilities.html</link>
+      <guid>https://utsavkarki.com.np/blog/php2shell-critical-php-vulnerabilities.html</guid>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0000</pubDate>
+      <category>Security</category>
+      <description>CVE-2026-109618 and CVE-2026-109619 let attackers run code on PHP servers without logging in. What the two flaws are, why they matter for most of the web, and the exact steps to patch, mitigate and check for compromise.</description>
+    </item>
+    <item>
       <title>From Itahari to St. John&#x27;s: Balancing an MSc, a Dev Job and Freelance Clients</title>
       <link>https://utsavkarki.com.np/blog/nepal-to-newfoundland.html</link>
       <guid>https://utsavkarki.com.np/blog/nepal-to-newfoundland.html</guid>
