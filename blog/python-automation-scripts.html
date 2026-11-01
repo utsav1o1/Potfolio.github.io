@@ -9,12 +9,12 @@
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="Utsav Karki — Blog" href="https://utsavkarki.com.np/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Utsav Karki | Blog" href="https://utsavkarki.com.np/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <title>Python Automation Scripts for Web Developers — Utsav Karki</title>
+  <title>Python Automation Scripts for Web Developers | Utsav Karki</title>
   <meta name="description" content="Useful Python automation scripts for web developers: broken link checking, uptime alerts, image optimisation, API-to-spreadsheet syncs and scheduling them with cron.">
   <link rel="canonical" href="https://utsavkarki.com.np/blog/python-automation-scripts.html">
   <meta property="og:type" content="article">
@@ -123,7 +123,7 @@
 </head>
 <body>
   <nav class="nav" id="main-nav" aria-label="Main">
-    <a href="../index.html" class="nav-brand" aria-label="Utsav Karki — home">
+    <a href="../index.html" class="nav-brand" aria-label="Utsav Karki, home">
       <div class="nav-brand-mark">UK</div>
       <span class="nav-brand-text">utsav<span>1o1</span></span>
     </a>
@@ -215,7 +215,7 @@ for path in Path("uploads").rglob("*.[jp][pn]g"):
         img = img.resize((1600, int(img.height * 1600 / img.width)))
     img.save(path.with_suffix(".webp"), "WEBP", quality=80)
     print("optimised", path)</code></pre>
-<p>I used exactly this kind of script to shrink the screenshots on this portfolio from 1–2 MB PNGs to lightweight WebP files.</p>
+<p>I used exactly this kind of script to shrink the screenshots on this portfolio from 1 to 2 MB PNGs to lightweight WebP files.</p>
 
 <h2>4. API → Google Sheet sync</h2>
 <pre><code>import gspread, requests
