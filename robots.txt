@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /test.html
+Disallow: /header.html
+Disallow: /html/
+Disallow: /components/
+Disallow: /docs/
+
+Sitemap: https://utsavkarki.com.np/sitemap.xml

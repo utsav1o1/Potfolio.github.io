@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Utsav Karki">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1A3C34">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Utsav Karki — Blog" href="https://utsavkarki.com.np/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Python Automation Scripts for Web Developers — Utsav Karki</title>
+  <meta name="description" content="Useful Python automation scripts for web developers: broken link checking, uptime alerts, image optimisation, API-to-spreadsheet syncs and scheduling them with cron.">
+  <link rel="canonical" href="https://utsavkarki.com.np/blog/python-automation-scripts.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utsav Karki">
+  <meta property="og:title" content="Python Automation Scripts for Web Developers">
+  <meta property="og:description" content="Useful Python automation scripts for web developers: broken link checking, uptime alerts, image optimisation, API-to-spreadsheet syncs and scheduling them with cron.">
+  <meta property="og:url" content="https://utsavkarki.com.np/blog/python-automation-scripts.html">
+  <meta property="og:image" content="https://utsavkarki.com.np/img/blog/python-automation.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="article:published_time" content="2026-05-10">
+  <meta property="article:author" content="Utsav Karki">
+  <meta property="article:section" content="Python">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Python Automation Scripts for Web Developers">
+  <meta name="twitter:description" content="Useful Python automation scripts for web developers: broken link checking, uptime alerts, image optimisation, API-to-spreadsheet syncs and scheduling them with cron.">
+  <meta name="twitter:image" content="https://utsavkarki.com.np/img/blog/python-automation.jpg">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Python Automation Scripts for Web Developers", "description": "Useful Python automation scripts for web developers: broken link checking, uptime alerts, image optimisation, API-to-spreadsheet syncs and scheduling them with cron.", "image": "https://utsavkarki.com.np/img/blog/python-automation.jpg", "datePublished": "2026-05-10", "dateModified": "2026-05-10", "mainEntityOfPage": "https://utsavkarki.com.np/blog/python-automation-scripts.html", "articleSection": "Python", "author": {"@type": "Person", "name": "Utsav Karki", "url": "https://utsavkarki.com.np/"}, "publisher": {"@type": "Person", "name": "Utsav Karki", "url": "https://utsavkarki.com.np/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utsavkarki.com.np/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://utsavkarki.com.np/blog.html"}, {"@type": "ListItem", "position": 3, "name": "Python Automation Scripts for Web Developers", "item": "https://utsavkarki.com.np/blog/python-automation-scripts.html"}]}]}</script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1A3C34; --primary-light: #2E6B5E; --accent: #E07B39;
+      --bg: #F7F5F0; --bg2: #EDEAE3; --card: #FFFFFF;
+      --text: #1C1917; --text2: #57534E; --text3: #8A847F; --border: #D6D3CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7;
+      background-image: linear-gradient(rgba(26, 60, 52, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 60, 52, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; }
+    .nav {
+      position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(214, 211, 204, 0.8); border-radius: 99px;
+      padding: 6px 8px; display: flex; align-items: center; gap: 2px; z-index: 1000;
+      box-shadow: 0 8px 32px rgba(28, 25, 23, 0.12);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; text-decoration: none; border-right: 1px solid var(--border); margin-right: 6px; }
+    .nav-brand-mark { width: 32px; height: 32px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: white; }
+    .nav-brand-text { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .nav-brand-text span { color: var(--accent); font-weight: 700; }
+    .nav-link { display: flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 99px; font-size: 0.82rem; font-weight: 500; color: var(--text2); text-decoration: none; transition: all 0.18s; white-space: nowrap; }
+    .nav-link:hover { background: var(--bg2); color: var(--primary); }
+    .nav-link.active { background: var(--primary); color: #fff; }
+    .nav-link--cta { background: var(--accent); color: #fff !important; padding: 9px 18px; margin-left: 4px; font-weight: 600; }
+    .footer { background: var(--card); border-top: 1px solid var(--border); padding: 32px 0 110px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer p { color: var(--text2); font-size: 0.88rem; }
+    .footer-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+    .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.88rem; }
+    .footer-links a:hover { color: var(--primary); }
+    @media (max-width: 768px) {
+      .nav { top: auto; bottom: 18px; max-width: calc(100vw - 24px); }
+      .nav-brand { padding: 6px 8px 6px 6px; margin-right: 2px; }
+      .nav-brand-text { display: none; }
+      .nav-link span { display: none; }
+      .nav-link { padding: 9px 11px; }
+    }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .wide { max-width: 1040px; }
+    .crumbs { font-size: 0.82rem; color: var(--text3); margin-bottom: 18px; }
+    .crumbs a { color: var(--text2); text-decoration: none; }
+    .crumbs a:hover { color: var(--primary); }
+    .article-header { padding: 130px 0 32px; text-align: center; }
+    .article-meta { display: flex; gap: 14px; justify-content: center; align-items: center; margin-bottom: 18px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text3); }
+    .article-category { font-size: 0.75rem; background: var(--primary); color: #fff; padding: 4px 12px; border-radius: 20px; font-weight: 600; }
+    .article-header h1 { font-size: clamp(2rem, 5vw, 3.1rem); margin-bottom: 18px; line-height: 1.15; }
+    .article-header .lead { font-size: 1.12rem; color: var(--text2); max-width: 640px; margin: 0 auto; }
+    .article-cover { margin: 8px auto 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(28, 25, 23, 0.12); }
+    .article-cover img { width: 100%; height: auto; }
+    .article-content { padding: 48px 0 40px; }
+    .article-content h2 { font-size: 1.85rem; margin: 44px 0 16px; color: var(--text); }
+    .article-content h3 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--text); }
+    .article-content p { margin-bottom: 18px; color: var(--text2); font-size: 1.05rem; }
+    .article-content ul, .article-content ol { margin: 16px 0 22px; padding-left: 26px; color: var(--text2); font-size: 1.02rem; }
+    .article-content li { margin-bottom: 8px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content code { font-family: 'DM Mono', monospace; background: var(--bg2); padding: 2px 7px; border-radius: 4px; font-size: 0.88em; }
+    .article-content pre { background: #12261F; color: #E6ECE9; padding: 20px; border-radius: 12px; overflow-x: auto; margin: 20px 0 24px; font-family: 'DM Mono', monospace; font-size: 0.86rem; line-height: 1.6; }
+    .article-content pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+    .article-content blockquote { border-left: 4px solid var(--accent); background: var(--card); padding: 14px 20px; border-radius: 0 10px 10px 0; margin: 22px 0; color: var(--text2); }
+    .article-content a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+    .author-box { display: flex; gap: 18px; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-top: 40px; }
+    .author-box img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0; }
+    .author-box h4 { font-size: 1rem; margin-bottom: 2px; }
+    .author-box p { font-size: 0.9rem; color: var(--text2); margin: 0; }
+    .share-section { margin-top: 28px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .share-section h4 { font-size: 0.9rem; margin-right: 6px; }
+    .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text2); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: all 0.2s; cursor: pointer; font-family: inherit; }
+    .share-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+    .related { padding: 30px 0 90px; }
+    .related h2 { font-size: 2rem; margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .related-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; text-decoration: none; color: var(--text); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .related-card img { aspect-ratio: 1200/630; object-fit: cover; width: 100%; height: auto; }
+    .related-cat { font-size: 0.7rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; padding: 14px 16px 2px; }
+    .related-title { font-weight: 600; font-size: 0.95rem; line-height: 1.4; padding: 0 16px 16px; }
+    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } .article-header { padding-top: 60px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">UK</div>
+      <span class="nav-brand-text">utsav<span>1o1</span></span>
+    </a>
+    <a href="../index.html" class="nav-link" aria-label="Home"><i class="fas fa-home"></i> <span>Home</span></a>
+    <a href="../projects.html" class="nav-link" aria-label="Projects"><i class="fas fa-briefcase"></i> <span>Projects</span></a>
+    <a href="../gallery.html" class="nav-link" aria-label="Gallery"><i class="fas fa-images"></i> <span>Gallery</span></a>
+    <a href="../blog.html" class="nav-link active" aria-label="Blog"><i class="fas fa-pen-nib"></i> <span>Blog</span></a>
+    <a href="../index.html#contact" class="nav-link nav-link--cta" aria-label="Hire me"><i class="fas fa-paper-plane"></i> <span>Hire Me</span></a>
+  </nav>
+
+  <main>
+    <article>
+      <header class="article-header">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="../blog.html">Blog</a> / Python</nav>
+          <div class="article-meta">
+            <span class="article-category">Python</span>
+            <time datetime="2026-05-10"><i class="far fa-calendar"></i> May 10, 2026</time>
+            <span><i class="far fa-clock"></i> 3 min read</span>
+          </div>
+          <h1>Python Automation Scripts for Web Developers</h1>
+          <p class="lead">Useful Python automation scripts for web developers: broken link checking, uptime alerts, image optimisation, API-to-spreadsheet syncs and scheduling them with cron.</p>
+        </div>
+      </header>
+
+      <div class="container wide">
+        <figure class="article-cover">
+          <picture>
+            <source type="image/webp" srcset="../img/blog/python-automation.webp">
+            <img src="../img/blog/python-automation.jpg" width="1200" height="630" alt="Illustration for: Python Automation Scripts for Web Developers" fetchpriority="high">
+          </picture>
+        </figure>
+      </div>
+
+      <div class="article-content">
+        <div class="container">
+          <!-- article-body -->
+<p>A lot of web work is repetitive: checking links, compressing images, pulling reports. Here are small Python scripts I use to automate it. Each one fits on one screen.</p>
+
+<h2>1. Broken link checker</h2>
+<pre><code>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+def check_links(page_url):
+    html = requests.get(page_url, timeout=15).text
+    soup = BeautifulSoup(html, "html.parser")
+    for a in soup.select("a[href]"):
+        url = urljoin(page_url, a["href"])
+        if not url.startswith("http"):
+            continue
+        try:
+            r = requests.head(url, allow_redirects=True, timeout=10)
+            if r.status_code &gt;= 400:
+                print(r.status_code, url)
+        except requests.RequestException as e:
+            print("ERR", url, e)
+
+check_links("https://example.com")</code></pre>
+
+<h2>2. Uptime check with an email alert</h2>
+<pre><code>import smtplib, requests
+from email.message import EmailMessage
+
+SITES = ["https://example.com", "https://shop.example.com"]
+
+for site in SITES:
+    try:
+        ok = requests.get(site, timeout=10).status_code &lt; 400
+    except requests.RequestException:
+        ok = False
+    if not ok:
+        msg = EmailMessage()
+        msg["Subject"] = f"DOWN: {site}"
+        msg["From"] = msg["To"] = "alerts@example.com"
+        msg.set_content(f"{site} did not respond correctly.")
+        with smtplib.SMTP_SSL("smtp.example.com", 465) as s:
+            s.login("alerts@example.com", "app-password")
+            s.send_message(msg)</code></pre>
+
+<h2>3. Bulk image optimisation to WebP</h2>
+<pre><code>from pathlib import Path
+from PIL import Image
+
+for path in Path("uploads").rglob("*.[jp][pn]g"):
+    img = Image.open(path)
+    if img.width &gt; 1600:
+        img = img.resize((1600, int(img.height * 1600 / img.width)))
+    img.save(path.with_suffix(".webp"), "WEBP", quality=80)
+    print("optimised", path)</code></pre>
+<p>I used exactly this kind of script to shrink the screenshots on this portfolio from 1–2 MB PNGs to lightweight WebP files.</p>
+
+<h2>4. API → Google Sheet sync</h2>
+<pre><code>import gspread, requests
+
+orders = requests.get("https://api.example.com/orders?status=new",
+                      headers={"Authorization": "Bearer TOKEN"}).json()
+
+sheet = gspread.service_account("creds.json").open("Orders").sheet1
+for o in orders:
+    sheet.append_row([o["id"], o["customer"], o["total"], o["created_at"]])</code></pre>
+
+<h2>5. Scheduling: cron is enough</h2>
+<pre><code># crontab -e
+*/5 * * * *  /usr/bin/python3 /opt/scripts/uptime.py
+0 3 * * *    /usr/bin/python3 /opt/scripts/optimise_images.py &gt;&gt; /var/log/img.log 2&gt;&amp;1</code></pre>
+<p>Use a virtualenv and full paths in cron. Most "it works in my terminal but not in cron" problems come from the environment.</p>
+
+<h2>Tips for scripts that keep working</h2>
+<ul>
+  <li>Keep secrets in environment variables, not in the script.</li>
+  <li>Always set request <code>timeout</code>s; a hung request will block a cron job forever.</li>
+  <li>Log to a file, and alert on failure, not just on success.</li>
+  <li>Respect <code>robots.txt</code> and rate limits when scraping.</li>
+</ul>
+<p>Need a workflow automated for your business? <a href="../index.html#contact">Tell me about it</a>.</p>
+          <!-- /article-body -->
+
+          <div class="author-box">
+            <img src="../img/main2-600.webp" alt="Utsav Karki" width="72" height="72" loading="lazy">
+            <div>
+              <h4>Utsav Karki</h4>
+              <p>Software Developer at Verisult and MSc Computer Science student at Memorial University, based in St. John's, NL. I build with WordPress, Laravel, Next.js and Linux servers. <a href="../index.html#contact">Work with me →</a></p>
+            </div>
+          </div>
+
+          <div class="share-section">
+            <h4>Share:</h4>
+            <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Futsavkarki.com.np%2Fblog%2Fpython-automation-scripts.html" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Futsavkarki.com.np%2Fblog%2Fpython-automation-scripts.html&amp;text=Python%20Automation%20Scripts%20for%20Web%20Developers" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> X</a>
+            <a class="share-btn" href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Futsavkarki.com.np%2Fblog%2Fpython-automation-scripts.html&amp;t=Python%20Automation%20Scripts%20for%20Web%20Developers" target="_blank" rel="noopener"><i class="fab fa-hacker-news"></i> HN</a>
+            <button class="share-btn" type="button" onclick="navigator.clipboard &amp;&amp; navigator.clipboard.writeText('https://utsavkarki.com.np/blog/python-automation-scripts.html').then(()=&gt;{this.innerHTML='&lt;i class=&quot;fas fa-check&quot;&gt;&lt;/i&gt; Copied'})"><i class="fas fa-link"></i> Copy link</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="related">
+      <div class="container wide">
+        <h2>Keep reading</h2>
+        <div class="related-grid">
+          <a class="related-card" href="nepal-to-newfoundland.html">
+            <img src="../img/blog/nepal-to-newfoundland.webp" alt="" width="1200" height="630" loading="lazy">
+            <span class="related-cat">Career</span>
+            <span class="related-title">From Itahari to St. John&#x27;s: Balancing an MSc, a Dev Job and Freelance Clients</span>
+          </a>
+          <a class="related-card" href="verisult-college-wordpress.html">
+            <img src="../img/blog/verisult-college.webp" alt="" width="1200" height="630" loading="lazy">
+            <span class="related-cat">Case Study</span>
+            <span class="related-title">Building verisultcollege.ca: A WordPress Site for a Canadian College</span>
+          </a>
+          <a class="related-card" href="laravel-performance-optimization.html">
+            <img src="../img/blog/laravel-optimization.webp" alt="" width="1200" height="630" loading="lazy">
+            <span class="related-cat">Laravel</span>
+            <span class="related-title">Laravel Performance Optimization: From 5s to 200ms Load Time</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Utsav Karki · Software Developer · St. John's, NL, Canada</p>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="https://github.com/utsav1o1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

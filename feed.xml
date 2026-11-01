@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Utsav Karki — Blog</title>
+    <link>https://utsavkarki.com.np/blog.html</link>
+    <description>Web development, DevOps and freelancing notes by Utsav Karki.</description>
+    <language>en-ca</language>
+    <item>
+      <title>From Itahari to St. John&#x27;s: Balancing an MSc, a Dev Job and Freelance Clients</title>
+      <link>https://utsavkarki.com.np/blog/nepal-to-newfoundland.html</link>
+      <guid>https://utsavkarki.com.np/blog/nepal-to-newfoundland.html</guid>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+      <category>Career</category>
+      <description>What changed when I moved from Nepal to St. John&#x27;s, Newfoundland to study an MSc in Computer Science at MUN while working as a software developer and keeping my freelance clients.</description>
+    </item>
+    <item>
+      <title>Building verisultcollege.ca: A WordPress Site for a Canadian College</title>
+      <link>https://utsavkarki.com.np/blog/verisult-college-wordpress.html</link>
+      <guid>https://utsavkarki.com.np/blog/verisult-college-wordpress.html</guid>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <category>Case Study</category>
+      <description>How I approached the verisultcollege.ca WordPress build at Verisult: information architecture for programs and admissions, performance, accessibility, SEO and a launch checklist.</description>
+    </item>
+    <item>
+      <title>Laravel Performance Optimization: From 5s to 200ms Load Time</title>
+      <link>https://utsavkarki.com.np/blog/laravel-performance-optimization.html</link>
+      <guid>https://utsavkarki.com.np/blog/laravel-performance-optimization.html</guid>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+      <category>Laravel</category>
+      <description>A practical guide to optimizing Laravel applications: database indexing, eager loading, caching strategies and deployment best practices that took a dashboard from 5s to 200ms.</description>
+    </item>
+    <item>
+      <title>Production VPS Setup: Ubuntu, Nginx, PHP-FPM, MariaDB</title>
+      <link>https://utsavkarki.com.np/blog/vps-server-setup.html</link>
+      <guid>https://utsavkarki.com.np/blog/vps-server-setup.html</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <category>DevOps</category>
+      <description>Step-by-step guide to a production-ready Ubuntu VPS for PHP sites: users and SSH hardening, firewall, Nginx, PHP-FPM, MariaDB, free SSL with Certbot, and backups.</description>
+    </item>
+    <item>
+      <title>Working with UK Clients as a Remote Freelancer: Lessons from Nepal to Canada</title>
+      <link>https://utsavkarki.com.np/blog/freelancing-uk-clients.html</link>
+      <guid>https://utsavkarki.com.np/blog/freelancing-uk-clients.html</guid>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate>
+      <category>Freelancing</category>
+      <description>Practical lessons from years of freelancing for UK businesses, first from Nepal and now from St. John&#x27;s, Canada: communication, time zones, scoping, invoicing and long-term relationships.</description>
+    </item>
+    <item>
+      <title>WordPress Security Hardening: A Complete Checklist</title>
+      <link>https://utsavkarki.com.np/blog/wordpress-security-hardening.html</link>
+      <guid>https://utsavkarki.com.np/blog/wordpress-security-hardening.html</guid>
+      <pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate>
+      <category>WordPress</category>
+      <description>A practical WordPress security checklist: updates, admin accounts and 2FA, file permissions, wp-config hardening, Nginx and .htaccess rules, a WAF, backups and malware monitoring.</description>
+    </item>
+    <item>
+      <title>NopCommerce Development: A Practical Guide</title>
+      <link>https://utsavkarki.com.np/blog/nopcommerce-development.html</link>
+      <guid>https://utsavkarki.com.np/blog/nopcommerce-development.html</guid>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate>
+      <category>E-Commerce</category>
+      <description>A practical guide to NopCommerce development: architecture, themes and Razor views, writing plugins, payment and email integrations, search, and deploying to IIS or Linux.</description>
+    </item>
+    <item>
+      <title>Python Automation Scripts for Web Developers</title>
+      <link>https://utsavkarki.com.np/blog/python-automation-scripts.html</link>
+      <guid>https://utsavkarki.com.np/blog/python-automation-scripts.html</guid>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      <category>Python</category>
+      <description>Useful Python automation scripts for web developers: broken link checking, uptime alerts, image optimisation, API-to-spreadsheet syncs and scheduling them with cron.</description>
+    </item>
+  </channel>
+</rss>

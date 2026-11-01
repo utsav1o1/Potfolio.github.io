@@ -4,7 +4,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Utsav Karki — Full-Stack Developer & VPS Specialist</title>
+  <title>Utsav Karki — Software Developer in St. John's, NL | Full-Stack, WordPress &amp; Laravel</title>
+  <meta name="description"
+    content="Utsav Karki is a full-stack software developer in St. John's, Newfoundland, Canada — Software Developer at Verisult and MSc Computer Science student at Memorial University. WordPress, Laravel, Next.js, NopCommerce and VPS work for clients in Canada, the UK and beyond.">
+  <meta name="author" content="Utsav Karki">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1A3C34">
+  <link rel="canonical" href="https://utsavkarki.com.np/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Utsav Karki">
+  <meta property="og:title" content="Utsav Karki — Software Developer in St. John's, NL">
+  <meta property="og:description"
+    content="Full-stack developer (WordPress, Laravel, Next.js, VPS). Software Developer at Verisult, MSc CS at Memorial University of Newfoundland.">
+  <meta property="og:url" content="https://utsavkarki.com.np/">
+  <meta property="og:image" content="https://utsavkarki.com.np/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_CA">
+  <meta property="profile:first_name" content="Utsav">
+  <meta property="profile:last_name" content="Karki">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Utsav Karki — Software Developer in St. John's, NL">
+  <meta name="twitter:description"
+    content="Full-stack developer (WordPress, Laravel, Next.js, VPS). Software Developer at Verisult, MSc CS at MUN.">
+  <meta name="twitter:image" content="https://utsavkarki.com.np/img/og-image.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://utsavkarki.com.np/#person",
+        "name": "Utsav Karki",
+        "url": "https://utsavkarki.com.np/",
+        "image": "https://utsavkarki.com.np/img/main1-web.jpg",
+        "jobTitle": "Software Developer",
+        "email": "mailto:utsavkarki244@gmail.com",
+        "worksFor": { "@type": "Organization", "name": "Verisult", "url": "https://verisultcollege.ca" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Memorial University of Newfoundland", "url": "https://www.mun.ca" },
+          { "@type": "CollegeOrUniversity", "name": "Tribhuvan University" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "St. John's",
+          "addressRegion": "NL",
+          "addressCountry": "CA"
+        },
+        "knowsAbout": ["WordPress", "Laravel", "PHP", "Next.js", "React", "NopCommerce", "Python", "Linux server administration", "Nginx", "SEO"],
+        "sameAs": [
+          "https://github.com/utsav1o1",
+          "https://www.linkedin.com/in/utsav-karki-5675021a4",
+          "https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://utsavkarki.com.np/#website",
+        "url": "https://utsavkarki.com.np/",
+        "name": "Utsav Karki",
+        "publisher": { "@id": "https://utsavkarki.com.np/#person" }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preload" as="image" href="img/main1.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -203,7 +274,7 @@
     }
 
     /* Tooltip on hover */
-    .nav-link::after {
+    .nav-link[data-tip]::after {
       content: attr(data-tip);
       position: absolute;
       bottom: calc(100% + 10px);
@@ -221,15 +292,26 @@
       transition: opacity 0.15s, transform 0.15s;
     }
 
-    .nav-link:hover::after {
+    .nav-link[data-tip]:hover::after {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
 
     @media (max-width: 640px) {
       .nav {
+        top: auto;
         bottom: 18px;
         padding: 5px 6px;
+        max-width: calc(100vw - 24px);
+      }
+
+      .nav-brand {
+        padding: 6px 8px 6px 6px;
+        margin-right: 2px;
+      }
+
+      .nav-link::after {
+        display: none;
       }
 
       .nav-brand-text {
@@ -520,7 +602,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 30%;
       display: block;
+    }
+
+    .hero-photo picture {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
 
     /* Floating info cards */
@@ -1007,6 +1096,7 @@
       margin-bottom: 12px;
     }
 
+    .work-info h3,
     .work-info h4 {
       font-size: 1.2rem;
       font-weight: 700;
@@ -1257,8 +1347,38 @@
 
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .why-card {
+        padding: 22px;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav {
+        gap: 0;
+        padding: 4px;
+      }
+
+      .nav-brand {
+        border-right: none;
+        padding: 4px;
+      }
+
+      .nav-link,
+      .nav-link--cta {
+        padding: 9px 9px;
+        margin-left: 0;
+      }
     }
 
     .why-card {
@@ -1380,7 +1500,236 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 22%;
       border-radius: 50%;
+    }
+
+    .about-avatar-inner picture {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ============ EXPERIENCE & EDUCATION ============ */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .exp-col-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text3);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline {
+      list-style: none;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--primary), var(--border));
+    }
+
+    .timeline-item {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px var(--shadow-md);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 26px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--text3);
+    }
+
+    .timeline-item.is-current::before {
+      border-color: var(--green);
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    }
+
+    .company-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+      background: var(--primary);
+      overflow: hidden;
+    }
+
+    .company-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .timeline-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 4px 12px;
+    }
+
+    .timeline-head h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      color: var(--text);
+    }
+
+    .timeline-head h3 a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed var(--text3);
+    }
+
+    .timeline-head h3 a:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .timeline-when {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text3);
+      white-space: nowrap;
+    }
+
+    .timeline-when.now {
+      color: #15803D;
+      background: rgba(34, 197, 94, 0.12);
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    .timeline-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin: 2px 0 6px;
+    }
+
+    .timeline-item p {
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+
+    .edu-card.is-current {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 60, 52, 0.08);
+    }
+
+    .edu-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 4px;
+    }
+
+    .edu-school {
+      font-size: 0.88rem;
+      color: var(--primary-light);
+      font-weight: 600;
+    }
+
+    .edu-meta {
+      font-size: 0.8rem;
+      color: var(--text3);
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .location-card {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .location-card i {
+      font-size: 1.3rem;
+      color: #FDBA74;
+    }
+
+    .location-card strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .location-card span {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 900px) {
+      .exp-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
     }
 
     .about-content h2 {
@@ -1805,14 +2154,15 @@
       <div class="nav-brand-mark">UK</div>
       <span class="nav-brand-text">utsav<span>1o1</span></span>
     </a>
-    <a href="#about" class="nav-link"><i class="fas fa-user"></i> <span>About</span></a>
-    <a href="#work" class="nav-link"><i class="fas fa-briefcase"></i> <span>Work</span></a>
-    <a href="projects.html" class="nav-link"><i class="fas fa-layer-group"></i> <span>Projects</span></a>
-    <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> <span>Gallery</span></a>
-    <a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> <span>Blog</span></a>
-    <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> <span>Contact</span></a>
-    <a href="#contact" class="nav-link nav-link--cta"><i class="fas fa-paper-plane"></i> <span>Hire Me</span></a>
+    <a href="#about" class="nav-link" aria-label="About"><i class="fas fa-user"></i> <span>About</span></a>
+    <a href="#experience" class="nav-link" aria-label="Experience"><i class="fas fa-building"></i> <span>Experience</span></a>
+    <a href="projects.html" class="nav-link" aria-label="Projects"><i class="fas fa-layer-group"></i> <span>Projects</span></a>
+    <a href="blog.html" class="nav-link" aria-label="Blog"><i class="fas fa-pen-nib"></i> <span>Blog</span></a>
+    <a href="gallery.html" class="nav-link" aria-label="Gallery"><i class="fas fa-images"></i> <span>Gallery</span></a>
+    <a href="#contact" class="nav-link nav-link--cta" aria-label="Hire me"><i class="fas fa-paper-plane"></i> <span>Hire Me</span></a>
   </nav>
+
+  <main>
 
   <!-- Hero -->
   <section class="hero" id="hero">
@@ -1822,7 +2172,7 @@
         <!-- LEFT: Content -->
         <div class="hero-content">
           <div class="hero-eyebrow">
-            Hey, let's build something great
+            <span class="hero-eyebrow-dot"></span> Software Developer · St. John's, NL
           </div>
 
           <h1>
@@ -1831,9 +2181,10 @@
           </h1>
 
           <p class="hero-description">
-            I'm <strong>Utsav Karki</strong> — a full-stack developer &amp; VPS specialist based in Nepal, focused on
-            <strong>Next.js, Laravel, WordPress &amp; Python</strong> solutions. Helping businesses in the UK, Israel,
-            Australia, Nepal &amp; beyond build, migrate, and scale.
+            I'm <strong>Utsav Karki</strong> — a full-stack software developer based in
+            <strong>St. John's, Newfoundland</strong>. I work as a Software Developer at <strong>Verisult</strong>,
+            study for an <strong>MSc in Computer Science at Memorial University</strong>, and freelance on
+            <strong>WordPress, Laravel, Next.js &amp; VPS</strong> projects for clients in Canada, the UK and beyond.
           </p>
 
           <div class="hero-buttons">
@@ -1848,12 +2199,12 @@
               PeoplePerHour &nbsp;<span class="star">&#9733; 4.9</span>
             </span>
             <span class="hero-badge">
-              <i class="fas fa-check-circle" style="color:#4DA89C"></i>
-              20+ Projects Delivered
+              <i class="fas fa-graduation-cap" style="color:#4DA89C"></i>
+              MSc CS · MUN
             </span>
             <span class="hero-badge">
-              <i class="fas fa-globe" style="color:#2563EB"></i>
-              4 Countries Served
+              <i class="fas fa-location-dot" style="color:#E07B39"></i>
+              St. John's, Canada
             </span>
           </div>
         </div>
@@ -1862,7 +2213,13 @@
         <div class="hero-visual">
           <div class="hero-photo-frame">
             <div class="hero-photo">
-              <img src="img/utsav1o1.png" alt="Utsav Karki — Full-Stack Developer">
+              <picture>
+                <source type="image/webp" srcset="img/main1-600.webp 600w, img/main1.webp 900w" sizes="(max-width: 1024px) 320px, 380px">
+                <img src="img/main1-web.jpg" srcset="img/main1-600-web.jpg 600w, img/main1-web.jpg 900w"
+                  sizes="(max-width: 1024px) 320px, 380px" width="900" height="1205"
+                  alt="Utsav Karki, software developer, standing in an office in front of monitors showing code"
+                  fetchpriority="high">
+              </picture>
             </div>
 
             <!-- Floating Card: Rating -->
@@ -1891,7 +2248,7 @@
             <!-- Floating Card: Open to Work -->
             <div class="hero-card hero-card--openwork">
               <span class="openwork-dot"></span>
-              <span class="openwork-text">Open to Work</span>
+              <span class="openwork-text">Open to freelance</span>
             </div>
 
             <!-- Floating Card: Count -->
@@ -1925,7 +2282,7 @@
             <span class="particle"></span>
           </div>
           <div class="stat-icon"><i class="fas fa-clock"></i></div>
-          <div class="stat-value">3<span class="plus">+</span></div>
+          <div class="stat-value">5<span class="plus">+</span></div>
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat">
@@ -1954,6 +2311,103 @@
     </div>
   </section>
 
+  <!-- Experience & Education -->
+  <section class="section" id="experience">
+    <div class="container">
+      <span class="section-label">Experience</span>
+      <h2 class="section-title">Where I've Worked</h2>
+      <p class="section-subtitle">Companies and teams I've built for, and where I'm studying now</p>
+
+      <div class="exp-grid">
+        <div>
+          <h3 class="exp-col-title"><i class="fas fa-briefcase"></i> Work</h3>
+          <ol class="timeline">
+            <li class="timeline-item is-current">
+              <div class="company-logo"><img src="img/companies/verisult.png" alt="Verisult logo" width="48" height="48" loading="lazy"></div>
+              <div>
+                <div class="timeline-head">
+                  <h3><a href="https://verisultcollege.ca" target="_blank" rel="noopener">Verisult</a></h3>
+                  <span class="timeline-when now">Current</span>
+                </div>
+                <div class="timeline-role">Software Developer · Canada</div>
+                <p>Building and maintaining Verisult's web platforms, including the WordPress website for
+                  <a href="https://verisultcollege.ca" target="_blank" rel="noopener">verisultcollege.ca</a>.</p>
+              </div>
+            </li>
+            <li class="timeline-item is-current">
+              <div class="company-logo" style="background:#00A67E">PPH</div>
+              <div>
+                <div class="timeline-head">
+                  <h3><a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx" target="_blank" rel="noopener">PeoplePerHour</a></h3>
+                  <span class="timeline-when now">Ongoing</span>
+                </div>
+                <div class="timeline-role">Freelance Full-Stack Developer · Remote</div>
+                <p>Laravel, WordPress, NopCommerce and VPS projects for clients in the UK, Israel and Australia,
+                  with a 4.9★ rating.</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="company-logo" style="background:#E07B39">M65</div>
+              <div>
+                <div class="timeline-head">
+                  <h3>M65 SEO Agency</h3>
+                  <span class="timeline-when">Previously</span>
+                </div>
+                <div class="timeline-role">Web Developer</div>
+                <p>Website builds, maintenance and technical SEO for agency clients.</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="company-logo" style="background:#2E6B5E">AIH</div>
+              <div>
+                <div class="timeline-head">
+                  <h3>A.I.H. Ltd.</h3>
+                  <span class="timeline-when">Previously</span>
+                </div>
+                <div class="timeline-role">Chief Technology Officer</div>
+                <p>Led technology, hosting and infrastructure decisions.</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="company-logo" style="background:#4DA89C">SEO</div>
+              <div>
+                <div class="timeline-head">
+                  <h3><a href="https://seohealthcheck.co.uk" target="_blank" rel="noopener">seohealthcheck.co.uk</a></h3>
+                  <span class="timeline-when">Previously</span>
+                </div>
+                <div class="timeline-role">Founder &amp; Developer</div>
+                <p>Built a SaaS tool that scans websites and reports technical SEO issues.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div>
+          <h3 class="exp-col-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="edu-card is-current">
+            <h3>MSc Computer Science</h3>
+            <div class="edu-school">Memorial University of Newfoundland</div>
+            <div class="edu-meta"><i class="fas fa-circle" style="color:#22C55E;font-size:0.5rem"></i> In progress · St. John's, NL</div>
+          </div>
+          <div class="edu-card">
+            <h3>BSc Computer Science &amp; Information Technology</h3>
+            <div class="edu-school">Tribhuvan University</div>
+            <div class="edu-meta"><i class="fas fa-check"></i> Completed · Nepal</div>
+          </div>
+
+          <h3 class="exp-col-title" style="margin-top:28px"><i class="fas fa-location-dot"></i> Based in</h3>
+          <div class="location-card">
+            <i class="fas fa-map-location-dot"></i>
+            <div>
+              <strong>St. John's, Newfoundland &amp; Labrador, Canada</strong>
+              <span>Newfoundland Time (UTC−3:30) · originally from Itahari, Nepal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Work - Simplified Grid -->
   <section class="section work-section" id="work">
     <div class="container">
@@ -1962,65 +2416,66 @@
       <p class="section-subtitle">Websites and applications I've built</p>
 
       <div class="work-grid">
-        <a href="https://willywonka.vip" target="_blank" class="work-item">
-          <div class="work-image" style="background-image: url('img/projects_img/willywonka.png'); background-size: cover; background-position: center;"></div>
+        <a href="https://verisultcollege.ca" target="_blank" rel="noopener" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/verisultcollege.webp'); background-size: cover; background-position: center;"></div>
+          <div class="work-info">
+            <span class="work-flag">🇨🇦</span>
+            <h3>Verisult College</h3>
+            <p>College website built at Verisult</p>
+            <span class="work-stack">WordPress · Custom Theme</span>
+          </div>
+        </a>
+
+        <a href="https://willywonka.vip" target="_blank" rel="noopener" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/willywonka.webp'); background-size: cover; background-position: center;"></div>
           <div class="work-info">
             <span class="work-flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
-            <h4>Willy Wonka VIP</h4>
+            <h3>Willy Wonka VIP</h3>
             <p>Online competitions platform</p>
             <span class="work-stack">Next.js · Node.js · PM2</span>
           </div>
         </a>
 
-        <a href="https://www.solware.co.uk" target="_blank" class="work-item">
-          <div class="work-image" style="background-image: url('img/projects_img/solware.png'); background-size: cover; background-position: center;"></div>
+        <a href="https://www.solware.co.uk" target="_blank" rel="noopener" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/solware.webp'); background-size: cover; background-position: center;"></div>
           <div class="work-info">
             <span class="work-flag">🇬🇧</span>
-            <h4>Solware UK</h4>
+            <h3>Solware UK</h3>
             <p>NopCommerce electronics store</p>
             <span class="work-stack">NopCommerce · C# · Brevo</span>
           </div>
         </a>
 
-        <a href="https://www.ageuk.org.uk" target="_blank" class="work-item">
-          <div class="work-image" style="background-image: url('img/projects_img/ageuk.png'); background-size: cover; background-position: center;"></div>
+        <a href="https://www.ageuk.org.uk" target="_blank" rel="noopener" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/ageuk.webp'); background-size: cover; background-position: center;"></div>
           <div class="work-info">
             <span class="work-flag">🇬🇧</span>
-            <h4>Age UK</h4>
+            <h3>Age UK</h3>
             <p>UK's leading charity website</p>
             <span class="work-stack">CMS · SEO Support</span>
           </div>
         </a>
 
-        <a href="https://gshepherdanimalhealth.co.uk" target="_blank" class="work-item">
-          <div class="work-image" style="background-image: url('img/projects_img/gshepherdanimalhealth.png'); background-size: cover; background-position: center;"></div>
+        <a href="https://gshepherdanimalhealth.co.uk" target="_blank" rel="noopener" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/gshepherdanimalhealth.webp'); background-size: cover; background-position: center;"></div>
           <div class="work-info">
             <span class="work-flag">🇬🇧</span>
-            <h4>G. Shepherd Animal Health</h4>
+            <h3>G. Shepherd Animal Health</h3>
             <p>OpenCart animal health store</p>
             <span class="work-stack">OpenCart · VPS · Cloudflare</span>
           </div>
         </a>
 
-        <a href="https://the-magnificent7.com" target="_blank" class="work-item">
-          <div class="work-image" style="background-image: url('img/projects_img/the-magnificent7.png'); background-size: cover; background-position: center;"></div>
+        <a href="https://the-magnificent7.com" target="_blank" rel="noopener" class="work-item">
+          <div class="work-image" style="background-image: url('img/projects_img/the-magnificent7.webp'); background-size: cover; background-position: center;"></div>
           <div class="work-info">
             <span class="work-flag">🇮🇱</span>
-            <h4>The Magnificent 7</h4>
+            <h3>The Magnificent 7</h3>
             <p>Online backgammon club</p>
             <span class="work-stack">Laravel · MySQL</span>
           </div>
         </a>
 
-        <a href="https://globalnepaltreks.com" target="_blank" class="work-item">
-          <div class="work-image" style="background-image: url('img/projects_img/globalnepaltreks.png'); background-size: cover; background-position: center;"></div>
-          <div class="work-info">
-            <span class="work-flag">🇳🇵</span>
-            <h4>Global Nepal Treks</h4>
-            <p>Trekking agency website</p>
-            <span class="work-stack">Next.js · React</span>
-          </div>
-        </a>
       </div>
 
       <!-- Show More Button -->
@@ -2100,9 +2555,9 @@
         <div class="why-card">
           <div class="why-icon">💰</div>
           <div class="why-content">
-            <h4>Competitive Rates</h4>
-            <p>As a freelancer based in Nepal, I offer agency-quality work at freelance rates. You get the expertise
-              without the agency overhead.</p>
+            <h4>Agency Quality, Freelance Rates</h4>
+            <p>You work directly with the developer who writes the code. You get agency-level expertise without the
+              agency overhead or account-manager layers.</p>
           </div>
         </div>
 
@@ -2118,16 +2573,16 @@
         <div class="why-card">
           <div class="why-icon">🌍</div>
           <div class="why-content">
-            <h4>UK Business Focus</h4>
-            <p>I specialise in serving UK businesses. I understand British business standards, communication styles, and
-              quality expectations.</p>
+            <h4>Canada &amp; UK Business Focus</h4>
+            <p>Based in Newfoundland, with years of work for UK businesses. Newfoundland Time overlaps comfortably with
+              both North American and UK working hours.</p>
           </div>
         </div>
 
         <div class="why-card">
           <div class="why-icon">📈</div>
           <div class="why-content">
-            <h4>3+ Years Experience</h4>
+            <h4>5+ Years Experience</h4>
             <p>I've built everything from small WordPress sites to complex NopCommerce platforms and SaaS applications.
               Experience that shows in every line of code.</p>
           </div>
@@ -2227,21 +2682,25 @@
       <div class="about-grid">
         <div class="about-avatar">
           <div class="about-avatar-inner">
-            <img src="img/utsav1o1.png" alt="Utsav Karki"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div style="display:none;">👨‍💻</div>
+            <picture>
+              <source type="image/webp" srcset="img/main2-600.webp">
+              <img src="img/main2-600-web.jpg" width="600" height="804" loading="lazy"
+                alt="Utsav Karki smiling in a green shirt, leaning on a desk in a bright office">
+            </picture>
           </div>
         </div>
         <div class="about-content">
           <span class="section-label">About</span>
           <h2>About Utsav</h2>
-          <p>I'm a full-stack developer and server administrator based in Itahari, Nepal, with 5+ years of experience
-            building web platforms for clients in the UK, Australia, and Israel.</p>
-          <p>My expertise spans custom web development (Laravel, PHP, Next.js), e-commerce platforms
-            (WordPress/WooCommerce, NopCommerce, OpenCart), and full VPS server management using Virtualmin, CloudPanel,
-            and CyberPanel.</p>
-          <p>I'm a BSc CSIT graduate. I work as CTO at A.I.H. Ltd. and own seohealthcheck.co.uk as a personal SaaS project. On
-            PeoplePerHour, I maintain a strong rating working primarily with UK-based SMBs.</p>
+          <p>I'm a full-stack software developer based in St. John's, Newfoundland, Canada, with 5+ years of
+            experience building web platforms for clients in Canada, the UK, Australia, Israel and Nepal.</p>
+          <p>I work as a Software Developer at Verisult, where I built the
+            <a href="https://verisultcollege.ca" target="_blank" rel="noopener">verisultcollege.ca</a> website, and
+            I'm studying for an MSc in Computer Science at Memorial University of Newfoundland (MUN). Before that I
+            completed a BSc CSIT in Nepal.</p>
+          <p>My work covers custom web development (Laravel, PHP, Next.js), e-commerce (WordPress/WooCommerce,
+            NopCommerce, OpenCart) and VPS management with Virtualmin, CloudPanel and CyberPanel. I still take on
+            freelance work through PeoplePerHour.</p>
 
           <div class="about-links">
             <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx"
@@ -2251,12 +2710,12 @@
             <a href="https://github.com/utsav1o1" target="_blank" class="about-link">
               <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="https://seohealthcheck.co.uk" target="_blank" class="about-link">
-              <i class="fas fa-globe"></i> seohealthcheck.co.uk
+            <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank" rel="noopener" class="about-link">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
-            <a href="#" class="about-link">
-              <i class="fas fa-map-marker-alt"></i> Nepal (UTC+5:45)
-            </a>
+            <span class="about-link">
+              <i class="fas fa-map-marker-alt"></i> St. John's, NL (UTC−3:30)
+            </span>
           </div>
         </div>
       </div>
@@ -2273,16 +2732,16 @@
       <div class="contact-grid">
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xnqkjyrl" method="POST">
           <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" name="name" placeholder="Your name" required>
+            <label for="cf-name">Full Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" name="email" placeholder="your@email.com" required>
+            <label for="cf-email">Email Address</label>
+            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
           </div>
           <div class="form-group">
-            <label>Project Type</label>
-            <select name="project_type" required>
+            <label for="cf-project_type">Project Type</label>
+            <select id="cf-project_type" name="project_type" required>
               <option value="">Select a service...</option>
               <option>Web Development</option>
               <option>WordPress / WooCommerce</option>
@@ -2293,8 +2752,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Budget Range</label>
-            <select name="budget" required>
+            <label for="cf-budget">Budget Range</label>
+            <select id="cf-budget" name="budget" required>
               <option value="">Select budget...</option>
               <option>Under $500</option>
               <option>$500 – $1,000</option>
@@ -2303,8 +2762,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Message</label>
-            <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell me about your project..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message →</button>
         </form>
@@ -2315,14 +2774,14 @@
             <i class="fas fa-envelope"></i>
             <div>
               <h4>Email</h4>
-              <p>utsavkarki244@gmail.com</p>
+              <p><a href="mailto:utsavkarki244@gmail.com" style="color:inherit">utsavkarki244@gmail.com</a></p>
             </div>
           </div>
           <div class="contact-item">
-            <i class="fab fa-whatsapp"></i>
+            <i class="fas fa-location-dot"></i>
             <div>
-              <h4>WhatsApp</h4>
-              <p>Available on request</p>
+              <h4>Location</h4>
+              <p>St. John's, Newfoundland &amp; Labrador, Canada</p>
             </div>
           </div>
           <div class="contact-item">
@@ -2336,7 +2795,7 @@
             <i class="fas fa-clock"></i>
             <div>
               <h4>Timezone</h4>
-              <p>Nepal UTC+5:45 · Responds within 24h</p>
+              <p>Newfoundland Time (UTC−3:30) · Responds within 24h</p>
             </div>
           </div>
 
@@ -2351,19 +2810,21 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <h3>Utsav Karki</h3>
-          <p>Full-Stack Developer & VPS Specialist. Specializing in Laravel, NopCommerce, WordPress, and server
-            management.</p>
+          <p>Software Developer in St. John's, Newfoundland. Full-stack web development with WordPress, Laravel,
+            Next.js, NopCommerce and VPS server management.</p>
           <div class="footer-social">
-            <a href="https://github.com/utsav1o1" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/utsav1o1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx"
-              target="_blank"><i class="fas fa-hourglass-half"></i></a>
-            <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank"><i
+              target="_blank" rel="noopener" aria-label="PeoplePerHour"><i class="fas fa-hourglass-half"></i></a>
+            <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank" rel="noopener" aria-label="LinkedIn"><i
                 class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
@@ -2371,7 +2832,8 @@
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#work">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -2389,17 +2851,17 @@
         <div>
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="https://seohealthcheck.co.uk" target="_blank">SEO Health Check</a></li>
+            <li><a href="https://verisultcollege.ca" target="_blank" rel="noopener">Verisult College</a></li>
             <li><a
                 href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx"
-                target="_blank">Hire on PPH</a></li>
+                target="_blank" rel="noopener">Hire on PPH</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Utsav Karki · Full-Stack Developer & VPS Specialist · Nepal</p>
-        <p>Serving UK, Australian & global clients via <a
+        <p>© 2026 Utsav Karki · Software Developer · St. John's, NL, Canada</p>
+        <p>Serving Canadian, UK &amp; global clients via <a
             href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx"
             target="_blank">PeoplePerHour</a></p>
       </div>
@@ -2424,283 +2886,14 @@
   </div>
 
   <!-- Floating Buttons -->
-  <a href="https://wa.me/9779800000000" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
 
   <a href="#hero" class="back-to-top" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </a>
 
 
-  <!-- SEO Health Check Popup -->
-  <div id="seoPopup" class="seo-popup-overlay" style="display: none;">
-    <div class="seo-popup">
-      <button class="seo-popup-close" onclick="closeSeoPopup()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-      <div class="seo-popup-brand">
-        <span class="seo-popup-icon">🔍</span>
-        <span class="seo-popup-badge">FREE TOOL</span>
-      </div>
-      <h3 class="seo-popup-title">Check Your Website SEO</h3>
-      <p class="seo-popup-subtitle">Get instant insights on your site's SEO performance</p>
-      
-      <form action="https://seohealthcheck.co.uk/pages/calculator.php" method="POST" target="_blank" class="seo-popup-form">
-        <div class="seo-form-row">
-          <div class="seo-input-group">
-            <svg class="seo-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-            <input type="url" name="url" required placeholder="https://example.com" class="seo-input">
-          </div>
-          <div class="seo-input-group">
-            <svg class="seo-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <input type="email" name="email" required placeholder="email@example.com" class="seo-input">
-          </div>
-        </div>
-        <button type="submit" class="seo-submit-btn">
-          <span>Scan My Website</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
-      
-      <a href="https://seohealthcheck.co.uk" target="_blank" class="seo-popup-link">Learn more about SEO Health Check →</a>
-    </div>
-  </div>
-
-  <style>
-    .seo-popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(28, 25, 23, 0.7);
-      backdrop-filter: blur(8px);
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .seo-popup {
-      background: #fff;
-      border-radius: 24px;
-      padding: 40px;
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
-      animation: popupSlide 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    @keyframes popupSlide {
-      from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .seo-popup-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
-      border: none;
-      background: #f3f4f6;
-      border-radius: 50%;
-      cursor: pointer;
-      color: #6b7280;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-
-    .seo-popup-close:hover {
-      background: #1a3c34;
-      color: white;
-    }
-
-    .seo-popup-brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .seo-popup-icon {
-      font-size: 2rem;
-    }
-
-    .seo-popup-badge {
-      background: linear-gradient(135deg, #1a3c34 0%, #2e6b5e 100%);
-      color: white;
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 20px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .seo-popup-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.75rem;
-      color: #1a3c34;
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-
-    .seo-popup-subtitle {
-      color: #6b7280;
-      font-size: 0.95rem;
-      margin-bottom: 28px;
-      line-height: 1.5;
-    }
-
-    .seo-popup-form {
-      margin-bottom: 16px;
-    }
-
-    .seo-form-row {
-      display: flex;
-      gap: 12px;
-      padding: 6px;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      margin-bottom: 12px;
-    }
-
-    .seo-input-group {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0 14px;
-      border-right: 1px solid #e5e7eb;
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    .seo-input-group:last-child {
-      border-right: none;
-    }
-
-    .seo-input-icon {
-      color: #9ca3af;
-      flex-shrink: 0;
-    }
-
-    .seo-input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      font-size: 0.85rem;
-      color: #374151;
-      padding: 12px 0;
-      font-family: 'Inter', sans-serif;
-      min-width: 0;
-      width: 100%;
-    }
-
-    .seo-input::placeholder {
-      color: #9ca3af;
-    }
-
-    .seo-submit-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 24px;
-      background: linear-gradient(135deg, #1a3c34 0%, #2e6b5e 100%);
-      color: white;
-      border: none;
-      border-radius: 14px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      font-family: 'Inter', sans-serif;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .seo-submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(26, 60, 52, 0.35);
-    }
-
-    .seo-submit-btn:active {
-      transform: translateY(0);
-    }
-
-    .seo-popup-link {
-      display: inline-block;
-      color: #e07b39;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .seo-popup-link:hover {
-      color: #c76a28;
-    }
-
-    @media (max-width: 540px) {
-      .seo-popup {
-        padding: 30px 24px;
-        margin: 16px;
-      }
-      .seo-form-row {
-        flex-direction: column;
-        gap: 0;
-      }
-      .seo-input-group {
-        border-right: none;
-        border-bottom: 1px solid #e5e7eb;
-        padding: 0 8px;
-      }
-      .seo-input-group:last-child {
-        border-bottom: none;
-      }
-    }
-  </style>
 
   <script>
-    // Show popup once per session (uses sessionStorage)
-    window.addEventListener('load', function() {
-      if (!sessionStorage.getItem('seoPopupShown')) {
-        setTimeout(function() {
-          document.getElementById('seoPopup').style.display = 'flex';
-          sessionStorage.setItem('seoPopupShown', 'true');
-        }, 2000); // Show after 2 seconds
-      }
-    });
-
-    function closeSeoPopup() {
-      document.getElementById('seoPopup').style.display = 'none';
-    }
-
-    // Close on overlay click
-    document.getElementById('seoPopup').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeSeoPopup();
-      }
-    });
-
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const form = this;
