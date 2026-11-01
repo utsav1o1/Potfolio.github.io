@@ -11,7 +11,7 @@
       <guid>https://utsavkarki.com.np/blog/nepal-to-newfoundland.html</guid>
       <pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
       <category>Career</category>
-      <description>What changed when I moved from Nepal to St. John&#x27;s, Newfoundland to study an MSc in Computer Science at MUN while working as a software developer and keeping my freelance clients.</description>
+      <description>What changed when I moved from Nepal to St. John&#x27;s, Newfoundland to study an MSc in Computer Science at MUN while working at Verisult and keeping my freelance clients.</description>
     </item>
     <item>
       <title>Building verisultcollege.ca: A WordPress Site for a Canadian College</title>
@@ -19,7 +19,7 @@
       <guid>https://utsavkarki.com.np/blog/verisult-college-wordpress.html</guid>
       <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
       <category>Case Study</category>
-      <description>How I approached the verisultcollege.ca WordPress build at Verisult: information architecture for programs and admissions, performance, accessibility, SEO and a launch checklist.</description>
+      <description>How I approached the verisultcollege.ca build at Verisult (Tailwind CSS, GSAP, custom WordPress theme): information architecture for programs and admissions, performance, accessibility, SEO and a launch checklist.</description>
     </item>
     <item>
       <title>Laravel Performance Optimization: From 5s to 200ms Load Time</title>
