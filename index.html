@@ -2145,12 +2145,13 @@
       padding-bottom: 100px;
     }
   </style>
+  <link rel="stylesheet" href="css/site-shell.css">
 </head>
 
 <body>
   <!-- Navigation Dock -->
-  <nav class="nav" id="main-nav">
-    <a href="index.html" class="nav-brand">
+  <nav class="nav" id="main-nav" aria-label="Main">
+    <a href="index.html" class="nav-brand" aria-label="Utsav Karki — home">
       <div class="nav-brand-mark">UK</div>
       <span class="nav-brand-text">utsav<span>1o1</span></span>
     </a>
@@ -2172,7 +2173,7 @@
         <!-- LEFT: Content -->
         <div class="hero-content">
           <div class="hero-eyebrow">
-            <span class="hero-eyebrow-dot"></span> Software Developer · St. John's, NL
+            Software Developer · St. John's, NL
           </div>
 
           <h1>
@@ -2220,41 +2221,6 @@
                   alt="Utsav Karki, software developer, standing in an office in front of monitors showing code"
                   fetchpriority="high">
               </picture>
-            </div>
-
-            <!-- Floating Card: Rating -->
-            <div class="hero-card hero-card--rating">
-              <div class="rating-icon"><i class="fas fa-award"></i></div>
-              <div>
-                <div class="rating-score">4.9</div>
-                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <div class="rating-label">PPH Rating</div>
-              </div>
-            </div>
-
-            <!-- Floating Card: Tech Stack -->
-            <div class="hero-card hero-card--stack">
-              <div class="stack-label">Tech Stack</div>
-              <div class="hero-tech-grid">
-                <span class="hero-tech-pill">Next.js</span>
-                <span class="hero-tech-pill">Laravel</span>
-                <span class="hero-tech-pill">WP</span>
-                <span class="hero-tech-pill">Node</span>
-                <span class="hero-tech-pill">Python</span>
-                <span class="hero-tech-pill">VPS</span>
-              </div>
-            </div>
-
-            <!-- Floating Card: Open to Work -->
-            <div class="hero-card hero-card--openwork">
-              <span class="openwork-dot"></span>
-              <span class="openwork-text">Open to freelance</span>
-            </div>
-
-            <!-- Floating Card: Count -->
-            <div class="hero-card hero-card--count">
-              <div class="count-num">20+</div>
-              <div class="count-label">Projects</div>
             </div>
           </div>
         </div>
@@ -2868,23 +2834,6 @@
     </div>
   </footer>
 
-  <!-- Social Sidebar -->
-  <div class="social-sidebar">
-    <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank" class="social-item" title="LinkedIn">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://github.com/utsav1o1" target="_blank" class="social-item" title="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx"
-      target="_blank" class="social-item" title="PeoplePerHour">
-      <i class="fas fa-hourglass-half"></i>
-    </a>
-    <a href="mailto:utsavkarki244@gmail.com" class="social-item" title="Email Me">
-      <i class="fas fa-envelope"></i>
-    </a>
-  </div>
-
   <!-- Floating Buttons -->
 
   <a href="#hero" class="back-to-top" aria-label="Back to top">
@@ -3010,6 +2959,22 @@
       color: white;
     }
   </style>
+  <!-- Social Sidebar -->
+  <div class="social-sidebar">
+    <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank" rel="noopener" class="social-item" title="LinkedIn" aria-label="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://github.com/utsav1o1" target="_blank" rel="noopener" class="social-item" title="GitHub" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx"
+      target="_blank" rel="noopener" class="social-item" title="PeoplePerHour" aria-label="PeoplePerHour">
+      <i class="fas fa-hourglass-half"></i>
+    </a>
+    <a href="mailto:utsavkarki244@gmail.com" class="social-item" title="Email me" aria-label="Email me">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
 </body>
 
 </html>

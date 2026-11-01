@@ -1,0 +1,202 @@
+/* Shared navigation dock + social sidebar used on every page (matches the home page). */
+
+/* ============ NAVBAR DOCK ============ */
+.nav {
+  position: fixed;
+  top: 18px;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(214, 211, 204, 0.8);
+  border-radius: 99px;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  z-index: 1000;
+  box-shadow:
+    0 -2px 0 0 rgba(255, 255, 255, 0.6) inset,
+    0 8px 32px rgba(28, 25, 23, 0.12),
+    0 2px 8px rgba(28, 25, 23, 0.06);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 10px;
+  text-decoration: none;
+  border-right: 1px solid var(--border, #D6D3CC);
+  margin-right: 6px;
+}
+
+.nav-brand-mark {
+  width: 32px;
+  height: 32px;
+  background: var(--primary, #1A3C34);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #fff;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.nav-brand-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text, #1C1917);
+  white-space: nowrap;
+}
+
+.nav-brand-text span {
+  color: var(--accent, #E07B39);
+  font-weight: 700;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 14px;
+  margin-left: 0;
+  border-radius: 99px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text2, #57534E);
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-link i {
+  font-size: 0.82rem;
+  width: 14px;
+  text-align: center;
+}
+
+.nav-link:hover {
+  background: var(--bg2, #EDEAE3);
+  color: var(--primary, #1A3C34);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  background: var(--primary, #1A3C34);
+  color: #fff;
+}
+
+.nav-link--cta {
+  background: var(--accent, #E07B39);
+  color: #fff !important;
+  padding: 9px 18px;
+  margin-left: 4px;
+  font-weight: 600;
+}
+
+.nav-link--cta:hover {
+  background: #c76a28;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    top: auto;
+    bottom: 18px;
+    padding: 5px 6px;
+    max-width: calc(100vw - 24px);
+  }
+
+  .nav-brand {
+    padding: 6px 8px 6px 6px;
+    margin-right: 2px;
+  }
+
+  .nav-brand-text,
+  .nav-link span {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 9px 11px;
+  }
+
+  .nav-link--cta {
+    padding: 9px 13px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav {
+    gap: 0;
+    padding: 4px;
+  }
+
+  .nav-brand {
+    border-right: none;
+    padding: 4px;
+  }
+
+  .nav-link,
+  .nav-link--cta {
+    padding: 9px 9px;
+    margin-left: 0;
+  }
+}
+
+/* ============ SOCIAL SIDEBAR ============ */
+.social-sidebar {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1001;
+}
+
+.social-item {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border, #D6D3CC);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text2, #57534E);
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.06);
+}
+
+.social-item:hover {
+  background: var(--primary, #1A3C34);
+  color: #fff;
+  transform: translateX(-4px);
+  border-color: var(--primary, #1A3C34);
+}
+
+.social-item i {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1100px) {
+  .social-sidebar {
+    display: none;
+  }
+}

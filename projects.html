@@ -445,21 +445,22 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="css/site-shell.css">
 </head>
 
 <body>
   <!-- Navigation Dock -->
-  <nav class="nav" id="main-nav">
-    <a href="index.html" class="nav-brand">
+  <nav class="nav" id="main-nav" aria-label="Main">
+    <a href="index.html" class="nav-brand" aria-label="Utsav Karki — home">
       <div class="nav-brand-mark">UK</div>
       <span class="nav-brand-text">utsav<span>1o1</span></span>
     </a>
-    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
-    <a href="projects.html" class="nav-link active"><i class="fas fa-briefcase"></i> <span>Projects</span></a>
-    <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> <span>Gallery</span></a>
-    <a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> <span>Blog</span></a>
-    <a href="index.html#contact" class="nav-link nav-link--cta"><i class="fas fa-paper-plane"></i> <span>Hire
-        Me</span></a>
+    <a href="index.html#about" class="nav-link" aria-label="About"><i class="fas fa-user"></i> <span>About</span></a>
+    <a href="index.html#experience" class="nav-link" aria-label="Experience"><i class="fas fa-building"></i> <span>Experience</span></a>
+    <a href="projects.html" class="nav-link active" aria-current="page" aria-label="Projects"><i class="fas fa-layer-group"></i> <span>Projects</span></a>
+    <a href="blog.html" class="nav-link" aria-label="Blog"><i class="fas fa-pen-nib"></i> <span>Blog</span></a>
+    <a href="gallery.html" class="nav-link" aria-label="Gallery"><i class="fas fa-images"></i> <span>Gallery</span></a>
+    <a href="index.html#contact" class="nav-link nav-link--cta" aria-label="Hire me"><i class="fas fa-paper-plane"></i> <span>Hire Me</span></a>
   </nav>
 
   <!-- Page Header -->
@@ -741,6 +742,22 @@
       });
     });
   </script>
+  <!-- Social Sidebar -->
+  <div class="social-sidebar">
+    <a href="https://www.linkedin.com/in/utsav-karki-5675021a4" target="_blank" rel="noopener" class="social-item" title="LinkedIn" aria-label="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://github.com/utsav1o1" target="_blank" rel="noopener" class="social-item" title="GitHub" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.peopleperhour.com/freelancer/technology-programming/utsav-karki-laravel-php-wordpress-javascript-jmqqyzx"
+      target="_blank" rel="noopener" class="social-item" title="PeoplePerHour" aria-label="PeoplePerHour">
+      <i class="fas fa-hourglass-half"></i>
+    </a>
+    <a href="mailto:utsavkarki244@gmail.com" class="social-item" title="Email me" aria-label="Email me">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
 </body>
 
 </html>
